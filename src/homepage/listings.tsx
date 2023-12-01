@@ -16,7 +16,7 @@ const Listings = () => {
         A Trusted Vendors Listing Platform
       </h2>
 
-      <div className='w-full my-6 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 md:w-[90%] mx-auto pb-4 relative'>
+      <div className='w-full my-6 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 md:w-[90%] mx-auto pb-4 relative'>
       
         {previewListings.map((listing, index) => (
           <div key={index} className="card-shadow w-full">
