@@ -37,7 +37,7 @@ const Categories = () => {
 
   const updateVisibleCategories = () => {
     const screenWidth = window.innerWidth;
-    let newVisibleCategories = 6;
+    let newVisibleCategories = 9;
 
     if (screenWidth < 480) {
       newVisibleCategories = 1;
@@ -86,45 +86,59 @@ const Categories = () => {
   };
   
   return (
-    <div className="w-full mt-8 mb-6">
-      {/* <h2 className="md:text-lg text-[1.3rem] w-[90%] mx-auto">Categories</h2> */}
-      <div className="w-[90%] mx-auto">
-        <div className="flex items-center justify-between">
+    <div className="w-full mb-6">
+      <div className="border-t border-b border-white w-full">
+        <div className="flex items-center justify-between mx-6">
           <div onClick={showPreviousCategories}>
             <Image
               src="/svg/leftArrow.svg"
               alt="icon"
-              width={20}
-              height={20}
-              className={`cursor-pointer ${startIndex === 0 ? 'hidden' : ''}`}
+              width={25}
+              height={25}
+              className={`cursor-pointer transition duration-300 ease-in-out hover:border-yellow ${startIndex === 0 ? 'hidden' : ''}`}
             />
           </div>
-          <div className="center gap-6 overflow-hidden w-[84%]">
+          <div className="flex justify-center flex-wrap gap-4">
             {categories.slice(startIndex, startIndex + visibleCategories).map((category, index) => (
-              <div key={index} className="text-center">
+              <div key={index} className="text-center flex flex-col items-center cursor-pointer group">
                 <div
-                  className="w-[160px] h-[90px] flex items-center justify-center category my-6 hover:bg-blue hover:text-white rounded-[50%]"
+                  className="border border-white flex items-center justify-center category my-1 rounded-[50%] transition duration-300 ease-in-out transform hover:scale-105 hover:border-yellow border-1 border-transparent group-hover:border-yellow"
                   style={{
-                    background: `url(${category.img}) center/cover no-repeat`,
-                    width: "50px",
-                    height: "50px",
+                    background: `url(../../images/${category.img}) center/cover no-repeat`,
+                    width: "40px",
+                    height: "40px",
                   }}
                 ></div>
-                <p>{category.job}</p>
+                <p
+                  className="card-text group-hover:text-yellow h-6 overflow-hidden"
+                  title={category.job}
+                >
+                  {category.job}
+                </p>
               </div>
             ))}
           </div>
 
-          <div onClick={showNextCategories}>
+          <div onClick={showNextCategories} className="mx-2">
             <Image
-              src="/svg/rightArrow.svg"
-              alt="icon"
-              width={20}
-              height={20}
-              className={`cursor-pointer ${
+              src="/svg/Next_button.svg"
+              alt="Next-icon"
+              width={25}
+              height={25}
+              className={`cursor-pointer transition duration-300 ease-in-out transform hover:scale-105 hover:border-yellow ${
                 startIndex + visibleCategories >= categories.length ? 'hidden' : ''
               }`}
             />
+          </div>
+
+          <div className="border border-white cursor-pointer rounded-[20px] w-[130px] h-[28px] flex items-center mx-2 justify-around">
+            <Image
+              src="/svg/filter_icon.svg"
+              alt="filter-icon"
+              width={20}
+              height={20}
+            />
+            <p className="text-[16px] card-text">Location Filter</p>
           </div>
         </div>
       </div>
@@ -133,34 +147,23 @@ const Categories = () => {
           <Search onSearch={handleSearch} />
         </div>
       </div>
-      <div className="flex w-full flex-col items-center">
-        <h1 className="font-bold text-lg text-left w-[90%]">All</h1>
-        <div className="w-[90%] gap-6 flex-wrap flex mt-10">
-          {filteredVendorsListings.length > 0 ? (
-            filteredVendorsListings.map((listing, index) => (
-              <div key={index} className="lg:w-[31.5%] md:w-[48%] w-full mb-4 card-shadow">
+      <div className='w-full my-6 grid grid-cols-2 gap-6 md:grid-cols-3 md:w-[90%] mx-auto pb-4 relative'>
+        {filteredVendorsListings.length > 0 ? (
+
+          filteredVendorsListings.map((listing, index) => (
+            <div key={index} className="card-shadow cursor-pointer">
               <div className="w-full h-[285px]">
                 <Image src={listing.image} alt="image" width={393} height={282} />
               </div>
-              <div className="flex flex-col my-3 p-3">
-                <h3 className="text-[1.3rem] text-blue font-bold">{listing.name}</h3>
-                <p className="text-[.85rem] my-4 text-black h-[80px]">{listing.description}</p>
+              <div className="flex flex-col p-3">
+                <h3 className="text-[1.3rem] text-yellow font-bold">{listing.name}</h3>
               </div>
-              <CustomButton
-                  onClick={() => handleHireClick(listing)}
-                  background="#00CC83"
-                  textColor="#FFF"
-                  padding="10px"
-                  borderRadius="5px"
-                >
-                  Hire
-                </CustomButton>
+              <p className="card-text p-3">{listing.description}</p>
             </div>
-            ))
-          ) : (
-            <h2 className="text-center text-black text-lg mb-10">Vendor does not exist.</h2>
-          )}
-        </div>
+          ))
+        ) : (
+          <h2 className="text-center text-black text-lg mb-10">Vendor does not exist.</h2>
+        )}
       </div>
       {selectedListing && (
         <div className="modal fixed top-0 left-0 w-full h-full center">
