@@ -21,9 +21,21 @@ export const coverageData = [
     },
     {
       id: 4,
-      title: 'Beauticians',
-      body: `Beauticians are trained in a wide range of beauty treatments, which may include facials, skincare routines, makeup application, hair removal, nail care, body treatments, and massages. They possess knowledge of different skincare products, tools, and techniques to address specific concerns and achieve desired results.`,
-      backgroundImg: '/images/hair.png', 
+      title: 'Make-Up Artist',
+      body: `A makeup artist is a skilled professional who applies makeup to enhance a person's appearance for various occasions and purposes.`,
+      backgroundImg: '/images/Makeup.png', 
+    },
+    {
+      id: 5,
+      title: 'Fashion Design',
+      body: `Tailors are professionals who specialize in creating and altering clothing to fit individuals.`,
+      backgroundImg: '/images/Fashion.png', 
+    },
+    {
+      id: 6,
+      title: 'Hair Stylist',
+      body: `Hair stylists are professionals who specialize in styling, cutting, coloring, and treating hair.`,
+      backgroundImg: '/images/hairStylist.png', 
     },
   ];
   

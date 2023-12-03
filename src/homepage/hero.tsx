@@ -18,13 +18,13 @@ const Hero = () => {
             }}
         >
             <Navbar />
-            <div className="w-[60%] h-30 flex items-center justify-center absolute px-8 py-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" 
+            <div className="w-[70%] h-30 flex items-center justify-center absolute px-8 py-12 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" 
                 style={{
-                    backgroundColor: 'rgba(0, 0, 0, 0.7)', // Use rgba for both color and opacity
+                    backgroundColor: 'rgba(0, 0, 0, 0.5)', // Use rgba for both color and opacity
                 }}
             >
-                <div className="flex-col flex items-center gap-6 rounded-md md:text-xl">
-                    <p className="text-white text-lg text-center mx-auto mb-6 w-full">
+                <div className="flex-col flex items-center gap-6 rounded-md">
+                    <p className="text-white text-md md:text-[26px] lg:text-lg xl:text-xl text-center mb-4 w-full">
                         Simplify Your Vendor Search – Discover, Compare, and Choose with Ease
                     </p>
                     <Link href="@/vendorsListings" className='cursor-pointer text-normal'>
@@ -33,8 +33,8 @@ const Hero = () => {
                             padding="15px 40px"
                             borderRadius="5px"
                             textColor="#000"
-                            width="180px"
-                            height="50px"
+                            width="16rem"
+                            height="4rem"
                         >
                             Hire Now
                         </CustomButton>

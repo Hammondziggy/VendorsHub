@@ -16,7 +16,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="center md:pt-8 pt-4 w-full text-white relative">
+    <nav className="center mt-8 w-full text-white relative">
       <div className="between w-[90%]">
         <LogoImage />
         <div className="hidden md:flex items-center gap-6 text-[1rem]">
@@ -25,7 +25,7 @@ const Navbar = () => {
           <Link href="https://docs.google.com/forms/d/1diP-bM8dIQaQngA4dmq4E1laLlVLltujahS6osRTjpM/edit?usp=sharing_eil_se_dm&ts=64abcbfc"
             target="_blank"
           >
-            <button className="bg-yellow text-black text-normal font-bold px-8 py-2 rounded cursor-pointer">
+            <button className="m-w-[287px] h-[66px] bg-yellow text-black text-[24px] font-['Satoshi'] font-bold px-20 py-6 cursor-pointer">
               Register
             </button>
           </Link>
