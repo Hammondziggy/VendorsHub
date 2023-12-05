@@ -5,7 +5,7 @@ import { coverageData } from "../app/service/utils";
 const Services = () => {
   const [visibleCards, setVisibleCards] = useState(4);
   const [startIndex, setStartIndex] = useState(0);
-  // borrowed code
+  
   const updateVisibleCards = () => {
     const screenWidth = window.innerWidth;
     let newVisibleCards = 4;
@@ -35,16 +35,8 @@ const Services = () => {
     setStartIndex((prevIndex) => (prevIndex + 1) % coverageData.length);
   };
 
-  // const showPreviousCard = () => {
-  //   setCurrentCard((prevCard) => (prevCard === 0 ? coverageData.length - 1 : prevCard - 1));
-  // };
-
-  // const showNextCard = () => {
-  //   setCurrentCard((prevCard) => (prevCard === coverageData.length - 1 ? 0 : prevCard + 1));
-  // };
-
   return (
-    <div className="w-full border-2 overflow-hidden border-green pt-12 pb-12">
+    <div className="w-full overflow-hidden py-16">
       <div className="text-white w-[90%] mx-auto mb-2">
         <h3 className="sm:text-md font-bold mb-6 text-lg">Services We Offer</h3>
         <p className="flex flex-col mb-3 font-light sm:text-normal text-[20px]">
@@ -52,11 +44,11 @@ const Services = () => {
           networks for clients to find world-class vendors
         </p>
       </div>
-      <div className="w-[90%] mx-auto flex gap-3 border-2 border-red">
+      <div className="w-[90%] mx-auto flex gap-3">
         {coverageData.slice(startIndex, startIndex + visibleCards).map((data, index) => (
           <div
             key={index}
-            className="relative flex-shrink-0 border-2 border-blue"
+            className="relative flex-shrink-0"
             style={{
               background: `linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), 
               url(${data.backgroundImg}) center/cover no-repeat`,
@@ -64,7 +56,7 @@ const Services = () => {
               height: "425px",
             }}
           >
-            <div className="aspect-w-full aspect-h-9 flex flex-col flex-shrink-0 items-start gap-2 text-white p-4 top-60 absolute border-2 border-red">
+            <div className="aspect-w-full aspect-h-9 flex flex-col flex-shrink-0 items-start gap-2 text-white p-4 top-60 absolute">
               <h3 className="font-bold text-[24px] leading-normal">{data.title}</h3>
               <p className="font-light text-[14px]">{data.body}</p>
             </div>
@@ -73,7 +65,7 @@ const Services = () => {
       </div>
       {/* add nextBtn here */}
       <div className="flex justify-end w-[90%] mx-auto mt-2">
-        <div className="hidden lg:block border-2 border-red" onClick={showNextCard}>
+        <div className="hidden lg:block" onClick={showNextCard}>
           <Image
             src="/images/nextBtn.png"
             alt="Next-icon"

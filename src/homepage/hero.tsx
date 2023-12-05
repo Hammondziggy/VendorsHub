@@ -33,7 +33,7 @@ const Hero = () => {
                             padding="15px 40px"
                             borderRadius="5px"
                             textColor="#000"
-                            width="16rem"
+                            width="12rem"
                             height="4rem"
                         >
                             Hire Now

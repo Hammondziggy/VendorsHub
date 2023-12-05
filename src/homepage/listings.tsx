@@ -12,21 +12,21 @@ const Listings = () => {
   const previewListings = vendorsListings.slice(0, 6);
 
   return (
-    <div className="border-2 border-yellow py-12">
-      <h2 className='font-bold text-white text-md ml-14 border-2 border-yellow'>
+    <div className="w-[90%] mx-auto py-12">
+      <h2 className='font-bold text-white text-md ml-14'>
         A Trusted Vendors Listing Platform
       </h2>
 
       <div className='w-[90%] my-6 grid gap-6 sm:grid-cols-1 sm-md:grid-cols-2 sm-md:gap-2 
-        md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 mx-auto relative border-2 border-red'>  
+        md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 mx-auto relative'>  
         {previewListings.map((listing, index) => (
-          <div key={index} className="flex flex-col card-shadow w-full border-2 border-blue">
-            <div className="w-full aspect-w-4 aspect-h-3 border-2">
+          <div key={index} className="flex flex-col card-shadow w-full">
+            <div className="w-full aspect-w-4 aspect-h-3">
               <Image src={listing.image} alt="image" width={393} height={282} />
             </div>
-            <div className="flex items-center justify-between px-1 border-2">
-              <h3 className="sm:text-sm sm-md:text-[10px] md:text-sm lg:text-[16px] text-yellow font-bold border-2">{listing.name}</h3>
-              <section className="flex flex-col items-start justify-end gap-1 sm-md:gap-2 border-2 border-yellow">
+            <div className="flex items-center justify-between px-1">
+              <h3 className="sm:text-sm sm-md:text-[10px] md:text-sm lg:text-[16px] text-yellow font-bold">{listing.name}</h3>
+              <section className="flex flex-col items-start justify-end gap-1 sm-md:gap-2">
                 {listing.rating && <Rating rating={listing.rating} />}
                 <div className="flex items-center justify-start gap-2">
                   <Image src="./svg/location.svg" alt="location-icon" width={8} height={8}/>
