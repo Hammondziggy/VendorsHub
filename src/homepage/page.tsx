@@ -3,7 +3,7 @@
 import Hero from "./hero";
 import Listings from "./listings";
 import Services from "./services";
-import GalleryPrev from "./galleryPrev";
+import VideoGrid from "@/components/videoGrid";
 import Footer from "@/components/footer";
 import Register from "@/components/common/register";
 
@@ -13,7 +13,7 @@ const Homepage = () => {
             <Hero />
             <Listings />
             <Services />
-            <GalleryPrev />
+            <VideoGrid />
             <Register />
             <Footer />
         </>

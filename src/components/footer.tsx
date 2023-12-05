@@ -2,7 +2,8 @@
 
 import Link from 'next/link';
 import Logo from "./common/logo";
-import { BsFacebook, BsTwitter, BsInstagram, BsGithub } from 'react-icons/bs'
+import Image from 'next/image';
+// import { BsFacebook, BsTwitter, BsInstagram, BsGithub } from 'react-icons/bs'
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();
@@ -16,9 +17,27 @@ const Footer = () => {
                         We are an organization that brings together different event vendors for your beautiful events.
                     </p>
                     <div className="flex gap-3">
-                        <BsFacebook />
-                        <BsTwitter />
-                        <BsInstagram />
+                        <Image
+                            src="/svg/04-facebook.svg"
+                            alt="facebook-icon"
+                            width={20}
+                            height={20}
+                            className="cursor-pointer"
+                        />
+                        <Image
+                            src="/svg/_x37__stroke.svg"
+                            alt="x-icon"
+                            width={20}
+                            height={20}
+                            className="cursor-pointer"
+                        />
+                        <Image
+                            src="/svg/IG.svg"
+                            alt="ig-icon"
+                            width={20}
+                            height={20}
+                            className="cursor-pointer"
+                        />
                     </div>
                 </div>
                 <div>
