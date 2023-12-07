@@ -5,23 +5,24 @@ import { VideoData } from '../homepage/utils/videodata';
 
 const VideoGrid: React.FC = () => {
   return ( 
-    <div className="w-full border-2 border-blue pt-10 pb-20 relative">
-      <div className="w-[90%] mx-auto text-white ml-1 mb-4 border-2 border-red">
-        <h3 className="font-bold mb-6 text-lg">Gallery</h3>
+    <div className="w-full pt-10 pb-20 relative">
+      <div className="w-[90%] mx-auto text-white mb-4">
+        <h3 className="font-bold mb-6 text-md">Gallery</h3>
         <p className="flex flex-col flex-shrink-0 mb-2 font-light text-[20px]">
           Check out our inspiration gallery to get more ideas for your events
         </p>
       </div>
-      <div className="flex flex-wrap w-[90%] mx-auto gap-3 border-2 border-yellow">
+      <div className="grid grid-cols-1 gap-4 sm-md:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-3 w-[90%] mx-auto">
         {VideoData.slice(0, 6).map((video) => (
           <Link href={video.videoUrl} key={video.id} passHref>
-            <div className="relative group cursor-pointer aspect-w-16 aspect-h-9 bg-cover bg-center w-[336px] h-[236px] rounded border-2 border-red bg-black"
+            <div className="relative group cursor-pointer bg-cover bg-center rounded"
               style={{
                 backgroundImage: `url(${video.thumbnail})`,
                 backgroundRepeat: 'no-repeat',
                 backgroundPosition: 'center center',
+                paddingBottom: '56.25%', // 16:9 aspect ratio (h/w * 100)
               }}>
-              <div className="absolute cursor-pointer inset-0 items-center top-24 justify-center">
+              <div className="absolute inset-0 flex items-center justify-center">
                 <Image
                   src="/svg/playBtn.svg"
                   alt="Play-btn"
@@ -34,8 +35,9 @@ const VideoGrid: React.FC = () => {
           </Link>
         ))}
       </div>
-      <div className="w-[90%] mx-auto mt-3 flex justify-end bottom-4 border-2 border-yellow">
-        <Link href="./gallery">
+
+      <div className="w-[90%] mx-auto mt-3 flex justify-end bottom-4">
+        <Link href="/galleryPage">
           <CustomButton
             textColor="#1E1E1E"
             width="202px"
