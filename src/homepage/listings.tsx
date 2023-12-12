@@ -13,7 +13,7 @@ const Listings = () => {
 
   return (
     <div className="w-full py-12">
-      <div className="w-[90%] mx-auto">
+      <div className="w-[85%] mx-auto">
         <h2 className='font-bold text-white text-md'>
           A Trusted Vendors Listing Platform
         </h2>

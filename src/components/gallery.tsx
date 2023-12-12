@@ -5,7 +5,7 @@ import { VideoData } from '../homepage/utils/videodata';
 
 const Gallery: React.FC = () => {
     return (
-        <div className="grid grid-cols-1 gap-4 sm-md:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-3 w-[90%] mx-auto my-4">
+        <div className="grid grid-cols-1 gap-6 sm-md:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-3 w-[85%] mx-auto my-16">
             {VideoData.map((video) => (
                 <Link href={video.videoUrl} key={video.id} passHref>
                     <div className="relative group cursor-pointer bg-cover bg-center rounded"
@@ -27,6 +27,7 @@ const Gallery: React.FC = () => {
                     </div>
                 </Link>
             ))}
+            
         </div>      
     );
 }

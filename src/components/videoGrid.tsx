@@ -6,13 +6,13 @@ import { VideoData } from '../homepage/utils/videodata';
 const VideoGrid: React.FC = () => {
   return ( 
     <div className="w-full pt-10 pb-20 relative">
-      <div className="w-[90%] mx-auto text-white mb-4">
+      <div className="w-[85%] mx-auto text-white mb-4">
         <h3 className="font-bold mb-6 text-md">Gallery</h3>
         <p className="flex flex-col flex-shrink-0 mb-2 font-light text-[20px]">
           Check out our inspiration gallery to get more ideas for your events
         </p>
       </div>
-      <div className="grid grid-cols-1 gap-4 sm-md:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-3 w-[90%] mx-auto">
+      <div className="grid grid-cols-1 gap-4 sm-md:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-3 w-[85%] mx-auto">
         {VideoData.slice(0, 6).map((video) => (
           <Link href={video.videoUrl} key={video.id} passHref>
             <div className="relative group cursor-pointer bg-cover bg-center rounded"
@@ -26,8 +26,8 @@ const VideoGrid: React.FC = () => {
                 <Image
                   src="/svg/playBtn.svg"
                   alt="Play-btn"
-                  width={50}
-                  height={50}
+                  width={28}
+                  height={28}
                   style={{ margin: 'auto' }}
                 />
               </div>
@@ -36,7 +36,7 @@ const VideoGrid: React.FC = () => {
         ))}
       </div>
 
-      <div className="w-[90%] mx-auto mt-3 flex justify-end bottom-4">
+      <div className="w-[85%] mx-auto mt-3 flex justify-end bottom-4">
         <Link href="/galleryPage">
           <CustomButton
             textColor="#1E1E1E"

@@ -3,12 +3,12 @@ import Image from 'next/image';
 import { coverageData } from "../app/service/utils";
 
 const Services = () => {
-  const [visibleCards, setVisibleCards] = useState(4);
-  const [startIndex, setStartIndex] = useState(0);
-  
+  const [visibleCards, setVisibleCards] = useState(3);
+  const [startIndex, setStartIndex] = useState(visibleCards);
+  // borrowed code
   const updateVisibleCards = () => {
     const screenWidth = window.innerWidth;
-    let newVisibleCards = 4;
+    let newVisibleCards = 3;
 
     if (screenWidth < 480) {
       newVisibleCards = 1;
@@ -32,40 +32,43 @@ const Services = () => {
   }, []);
 
   const showNextCard = () => {
-    setStartIndex((prevIndex) => (prevIndex + 1) % coverageData.length);
+    const totalCards = coverageData.length - 2;
+  
+    // If there are more cards than the visible cards, loop back to the first card
+    setStartIndex((prevIndex) => (prevIndex + 1) % totalCards);
   };
-
+  
   return (
-    <div className="w-full overflow-hidden py-16">
-      <div className="text-white w-[90%] mx-auto mb-2">
+    <div className="w-full border-2 border-green pt-12 pb-12">
+      <div className="text-white w-[85%] mx-auto mb-2">
         <h3 className="sm:text-md font-bold mb-6 text-lg">Services We Offer</h3>
         <p className="flex flex-col mb-3 font-light sm:text-normal text-[20px]">
           We are a brand hoping to deliver and become one of the largest <br/>
           networks for clients to find world-class vendors
         </p>
       </div>
-      <div className="w-[90%] mx-auto flex gap-3">
+      <div className="w-[85%] mx-auto flex gap-2 border-2 border-red">
         {coverageData.slice(startIndex, startIndex + visibleCards).map((data, index) => (
           <div
             key={index}
-            className="relative flex-shrink-0"
+            className="relative flex-grow transition-transform ease-in-out duration-500 transform translate-x-0 border-2 border-blue"
             style={{
               background: `linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), 
               url(${data.backgroundImg}) center/cover no-repeat`,
-              width: "297px",
-              height: "425px",
+              width: "328px", // Set a minimum width to ensure it doesn't collapse
+              height: "416px", // Set a minimum height to ensure it doesn't collapse
             }}
           >
-            <div className="aspect-w-full aspect-h-9 flex flex-col flex-shrink-0 items-start gap-2 text-white p-4 top-60 absolute">
+            <div className="aspect-w-full aspect-h-9 flex flex-col flex-shrink-0 items-start gap-2 text-white p-4 top-60 absolute border-2 border-red">
               <h3 className="font-bold text-[24px] leading-normal">{data.title}</h3>
               <p className="font-light text-[14px]">{data.body}</p>
             </div>
           </div>
-        ))}     
+        ))}
       </div>
       {/* add nextBtn here */}
-      <div className="flex justify-end w-[90%] mx-auto mt-2">
-        <div className="hidden lg:block" onClick={showNextCard}>
+      <div className="flex justify-end w-[85%] mx-auto mt-2">
+        <div className="hidden lg:block border-2 border-red" onClick={showNextCard}>
           <Image
             src="/images/nextBtn.png"
             alt="Next-icon"

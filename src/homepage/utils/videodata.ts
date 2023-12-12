@@ -1,58 +1,94 @@
- // VideoData.ts
+// VideoData.ts
 export type Video = {
-    id: number;
-    title: string;
-    thumbnail: string;
-    videoUrl: string;
+  id: number;
+  thumbnail: string;
+  videoUrl: string;
 };
- 
-export const VideoData = [
+
+export const VideoData: Video[] = [
   {
     id: 1,
-    title: "Introduction to React",
-    thumbnail: "https://i.ytimg.com/vi/sBws8MSXN7A/maxresdefault.jpg",
-    videoUrl: "https://www.youtube.com/watch?v=sBws8MSXN7A",
+    thumbnail: "https://i.ytimg.com/vi/pF9Tr1dH05Y/maxresdefault.jpg",
+    videoUrl: "https://youtu.be/pF9Tr1dH05Y?si=AMAAps_IUoWqURgE",
   },
   {
     id: 2,
-    title: "JavaScript Fundamentals",
-    thumbnail: "https://i.ytimg.com/vi/W6NZfCO5SIk/maxresdefault.jpg",
-    videoUrl: "https://www.youtube.com/watch?v=W6NZfCO5SIk",
+    thumbnail: "https://i.ytimg.com/vi/05yD_ojiSw8/maxresdefault.jpg",
+    videoUrl: "https://youtu.be/05yD_ojiSw8?si=EVvV-obFcKuw0LjW",
   },
   {
     id: 3,
-    title: "CSS Layout Techniques",
-    thumbnail: "https://i.ytimg.com/vi/889Uc9ro4SE/maxresdefault.jpg",
-    videoUrl: "https://www.youtube.com/watch?v=889Uc9ro4SE",
+    thumbnail: "https://i.ytimg.com/vi/CF5q6GVo6Hw/maxresdefault.jpg",
+    videoUrl: "https://youtu.be/CF5q6GVo6Hw?si=ARWBO-mou_mG77Ss",
   },
   {
     id: 4,
-    title: "Node.js Crash Course",
-    thumbnail: "https://i.ytimg.com/vi/fBNz5xF-Kx4/maxresdefault.jpg",
-    videoUrl: "https://www.youtube.com/watch?v=fBNz5xF-Kx4",
+    thumbnail: "https://i.ytimg.com/vi/kx712YLTn6Y/maxresdefault.jpg",
+    videoUrl: "https://youtu.be/kx712YLTn6Y?si=cxyBWqfIzzH6eBcJ",
   },
   {
     id: 5,
-    title: "Python for Beginners",
-    thumbnail: "https://i.ytimg.com/vi/_Z5k9nWcuFc/maxresdefault.jpg",
-    videoUrl: "https://www.youtube.com/watch?v=_Z5k9nWcuFc",
+    thumbnail: "https://i.ytimg.com/vi/EvqICeeF6jM/maxresdefault.jpg",
+    videoUrl: "https://youtu.be/EvqICeeF6jM?si=bEOO86Iv7k9Fyi4U",
   },
   {
     id: 6,
-    title: "Web Development Tips",
-    thumbnail: "https://i.ytimg.com/vi/nQ9CXf0WOf4/maxresdefault.jpg",
-    videoUrl: "https://www.youtube.com/watch?v=nQ9CXf0WOf4",
+    thumbnail: "https://i.ytimg.com/vi/UAnjTj_yC2M/maxresdefault.jpg",
+    videoUrl: "https://youtu.be/UAnjTj_yC2M?si=2DhLsSjnBUur_nNF",
   },
   {
     id: 7,
-    title: "React Hooks Explained",
-    thumbnail: "https://i.ytimg.com/vi/_Z5k9nWcuFc/maxresdefault.jpg",
-    videoUrl: "https://www.youtube.com/watch?v=O6P86uwfdR0",
+    thumbnail: "https://i.ytimg.com/vi/Slj-vEVuXPA/maxresdefault.jpg",
+    videoUrl: "https://youtu.be/Slj-vEVuXPA?si=uNWMuVsACjMizxE9",
   },
   {
     id: 8,
-    title: "Responsive Web Design",
-    thumbnail: "https://i.ytimg.com/vi/XsEnj-1hG2o/maxresdefault.jpg",
-    videoUrl: "https://www.youtube.com/watch?v=XsEnj-1hG2o",
+    thumbnail: "https://i.ytimg.com/vi/Y6lgfLxIDxk/maxresdefault.jpg",
+    videoUrl: "https://youtu.be/Y6lgfLxIDxk?si=On-VBEJKnMoY1mey",
+  },
+  {
+    id: 9,
+    thumbnail: "https://i.ytimg.com/vi/Q1_KKyGCqmI/maxresdefault.jpg",
+    videoUrl: "https://youtu.be/Q1_KKyGCqmI?si=OGA73d1htTtmETX_",
+  },
+  {
+    id: 10,
+    thumbnail: "https://i.ytimg.com/vi/nqtmMpinR8s/maxresdefault.jpg",
+    videoUrl: "https://youtu.be/nqtmMpinR8s?si=vjwE_Cb8TEWW9auw",
+  },
+  {
+    id: 11,
+    thumbnail: "https://i.ytimg.com/vi/_IsYvtm17Gs/maxresdefault.jpg",
+    videoUrl: "https://youtu.be/_IsYvtm17Gs?si=X0YIybRXIjrsk8Gv",
+  },
+  {
+    id: 12,
+    thumbnail: "https://i.ytimg.com/vi/ux3ki0iUuc8/maxresdefault.jpg",
+    videoUrl: "https://youtu.be/ux3ki0iUuc8?si=_9DZDx9F4HC8_qOR",
+  },
+  {
+    id: 13,
+    thumbnail: "https://i.ytimg.com/vi/1NY13k9MJ1U/maxresdefault.jpg",
+    videoUrl: "https://youtu.be/1NY13k9MJ1U?si=mZfb1eD4Rx_xaqw6",
+  },
+  {
+    id: 14,
+    thumbnail: "https://i.ytimg.com/vi/wIi6iMi2-JE/maxresdefault.jpg",
+    videoUrl: "https://youtu.be/wIi6iMi2-JE?si=adR1bk-TZkCo5u6t",
+  },
+  {
+    id: 15,
+    thumbnail: "https://i.ytimg.com/vi/C_qGepkW3KI/maxresdefault.jpg",
+    videoUrl: "https://youtu.be/C_qGepkW3KI?si=5wTBgymANS2GxImD",
+  },
+  {
+    id: 16,
+    thumbnail: "https://i.ytimg.com/vi/wukj5O5m5m0/maxresdefault.jpg",
+    videoUrl: "https://youtu.be/wukj5O5m5m0?si=a5u4j2Tiv2r4JGtL",
+  },
+  {
+    id: 17,
+    thumbnail: "https://i.ytimg.com/vi/ji1zcXCTbJE/maxresdefault.jpg",
+    videoUrl: "https://youtu.be/ji1zcXCTbJE?si=aFSs0-AvmqHYCi7M",
   },
 ];
