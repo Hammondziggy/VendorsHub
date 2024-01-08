@@ -1,5 +1,6 @@
 export const vendorsListings = [
     {
+        id: 1,
         name: 'Pakaard Media',
         image: '/images/Pakaard.png',
         description: 'A media outfit specialized in delivering beautiful top-notch images at very affordable rates for all events.',
@@ -13,7 +14,8 @@ export const vendorsListings = [
         rating: 4.5, 
     },
     {
-        name: 'Moncherri_Confectionery',
+        id: 2,
+        name: 'Moncherri Confectionery',
         image: '/images/Moncherri_Confectionery.png',
         description: 'Mon Cherri Confectionery is a brand that gives delicious cakes and pastries that are perfect for any occasion.',
         job: 'catering chef cake',
@@ -23,9 +25,10 @@ export const vendorsListings = [
         social: 'Moncherri_Confectionery',
         service: 'Baker',
         experience: '2 years',
-        rating: 3.8, 
+        rating: 4.5, 
     },
     {
+        id: 3,
         name: 'Cherry Gold Confectionery',
         image: '/images/Cherry.png',
         description: 'Cherry Gold Confectionery offers customers yummy, beautiful, mouth-watering birthday cake, small chops, and pastries with a touch of love.',
@@ -39,6 +42,7 @@ export const vendorsListings = [
         rating: 4.2, 
     },
     {
+        id: 4,
         name: 'Mercuria Business Network',
         image: '/images/mercuria.png',
         description: 'We are into delivering services for events and catering.',
@@ -52,6 +56,7 @@ export const vendorsListings = [
         rating: 4.9, 
     },
     {
+        id: 5,
         name: 'Wildcard prints',
         image: '/images/wildcard.png',
         description: 'Wildcard prints is a company that gives bespoke printing services for all events and gatherings. We are your go to for achieving high quality design and branding for your events.',
@@ -62,9 +67,10 @@ export const vendorsListings = [
         social: 'Thread: @wildcard_prints, IG: wildcard_prints',
         service: 'Printer',
         experience: '7 years',
-        rating: 2,
+        rating: 4.7,
     },
-    {
+    { 
+        id: 6,
         name: 'Chef nahnah Foods',
         image: '/images/nahnah.png',
         description: 'Chef Nahnah foods and confectionary ltd is a modern and exquisite pastry company that produces food and treats cutting across all classes.',
@@ -78,6 +84,7 @@ export const vendorsListings = [
         rating: 4.8, 
     },
     {
+        id: 7,
         name: "Jenny's Glam",
         image: '/images/jenny.png',
         description: 'Make up.',
@@ -88,9 +95,10 @@ export const vendorsListings = [
         social: 'Jennys_glamm',
         service: 'Beautician',
         experience: '8 years',
-        rating: 3.5, 
+        rating: 4.5, 
     },
     {
+        id: 8,
         name: "Bee's smoothies and juice",
         image: '/images/bee.png',
         description: 'One-stop shop for all your healthy yet, delicious fresh smoothies and juices.',
@@ -104,6 +112,7 @@ export const vendorsListings = [
         rating: 4.2, 
     },
     {
+        id: 9,
         name: 'Real Leather',
         image: '/images/real.png',
         description: 'Into Manufacturing of shoes.',
@@ -117,6 +126,7 @@ export const vendorsListings = [
         rating: 4.5, 
     },
     {
+        id: 10,
         name: 'Soo Casual',
         image: '/images/soo.png',
         description: 'Designing.',
@@ -127,9 +137,10 @@ export const vendorsListings = [
         social: 'Soo__casual',
         service: 'Fashion',
         experience: '4 years',
-        rating: 3.9, 
+        rating: 4.9, 
     },
     {
+        id: 11,
         name: 'Mariposa Fruits Co',
         image: '/images/mariposa.png',
         description: 'We sell parfaits, smoothies and juices, fruit trees and chocolate fountains, cocktails and mocktails, salads and sandwiches.',
@@ -143,6 +154,7 @@ export const vendorsListings = [
         rating: 4.6, 
     },
     {
+        id: 12,
         name: 'His Touch Studios',
         image: '/images/touch.png',
         description: 'His Touch Studios is a professional event Photography company with an experience of over a decade. We are known for quality service and prompt delivery.',
@@ -156,6 +168,7 @@ export const vendorsListings = [
         rating: 4.9, 
     },
     {
+        id: 13,
         name: "Surshi's cuisine",
         image: '/images/surshi.png',
         description: 'Food, snacks, beverages, soup bowls.',
@@ -166,9 +179,10 @@ export const vendorsListings = [
         social: "Surshi's cuisine (Instagram) surshi's cuisine (Facebook)",
         service: 'Catering',
         experience: '4 years',
-        rating: 3.7, 
+        rating: 4.7, 
     },
     {
+        id: 14,
         name: 'Imv hub',
         image: '/images/imv.png',
         description: 'Marketing and technology agency.',
@@ -182,6 +196,7 @@ export const vendorsListings = [
         rating: 4.2,
     },
     {
+        id: 15,
         name: 'Maybeth Decors & Events',
         image: '/images/maybeth.png',
         description: 'Maybeth Decors & Event is an event Decoration company based in Lagos that caters for both social & corporate Events. We also have the rental arm of the company.',
@@ -195,6 +210,7 @@ export const vendorsListings = [
         rating: 4.5, 
     },
     {
+        id: 16,
         name: 'Veroni_hairs',
         image: '/images/veroni.png',
         description: 'We deal in all kinds of human hair and accessories.',
@@ -205,6 +221,6 @@ export const vendorsListings = [
         social: 'veroni_hairs',
         service: 'Beauty and hair care',
         experience: '3 years',
-        rating: 4.0, 
+        rating: 4.3, 
     },
 ]

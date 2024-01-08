@@ -1,7 +1,14 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "types": [
+      "@fortawesome/react-fontawesome"
+    ],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -20,9 +27,22 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": [
+        "./src/*"
+      ]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/profile/[userId]/page", "src/homepage/utils/dot.js", "src/homepage/utils/slider.js"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "src/app/vendorsProfile/[userId]",
+    "src/homepage/utils/dot.js",
+    "src/homepage/utils/slider.js"
+  ],
+  "exclude": [
+    "node_modules",
+    ".next"
+  ]
 }

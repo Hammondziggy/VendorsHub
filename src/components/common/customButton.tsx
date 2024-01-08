@@ -1,7 +1,10 @@
+// CustomButton.js
 import React from 'react';
 import { CustomButtonTypes } from '@/types/commonTypes/button';
 
-interface CustomButtonProps extends CustomButtonTypes {}
+interface CustomButtonProps extends CustomButtonTypes {
+  textSize?: string; // Additional Tailwind CSS text size classes
+}
 
 const CustomButton: React.FC<CustomButtonProps> = ({
   border = 'none',
@@ -14,7 +17,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
   borderRadius = '20px',
   cursor = 'pointer',
   children,
-  textSize = '1rem',
+  textSize = 'text-base', // Default to base text size
 }) => {
   const buttonStyle = {
     border,
@@ -25,11 +28,14 @@ const CustomButton: React.FC<CustomButtonProps> = ({
     borderRadius,
     cursor,
     color: textColor,
-    fontSize: textSize,
   };
 
   return (
-    <button className="center border font-bold w-full hover:scale-95 transition duration-300" onClick={onClick} style={buttonStyle}>
+    <button
+      className={`center border font-bold w-full hover:scale-95 transition duration-300 ${textSize}`}
+      onClick={onClick}
+      style={buttonStyle}
+    >
       {children}
     </button>
   );

@@ -1,5 +1,3 @@
-'use client';
-
 import Homepage from '@/homepage/page';
 import '@/app/globals.css';
 

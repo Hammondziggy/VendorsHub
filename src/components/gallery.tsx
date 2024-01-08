@@ -9,12 +9,12 @@ const Gallery: React.FC = () => {
             {VideoData.map((video) => (
                 <Link href={video.videoUrl} key={video.id} passHref>
                     <div className="relative group cursor-pointer bg-cover bg-center rounded"
-                    style={{
-                        backgroundImage: `url(${video.thumbnail})`,
-                        backgroundRepeat: 'no-repeat',
-                        backgroundPosition: 'center center',
-                        paddingBottom: '56.25%', // 16:9 aspect ratio (h/w * 100)
-                    }}>
+                        style={{
+                            backgroundImage: `url(${video.thumbnail})`,
+                            backgroundRepeat: 'no-repeat',
+                            backgroundPosition: 'center center',
+                            paddingBottom: '56.25%', // 16:9 aspect ratio (h/w * 100)
+                        }}>
                         <div className="absolute inset-0 flex items-center justify-center">
                             <Image
                                 src="/svg/playBtn.svg"
@@ -26,8 +26,7 @@ const Gallery: React.FC = () => {
                         </div>
                     </div>
                 </Link>
-            ))}
-            
+            ))}            
         </div>      
     );
 }

@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { categories } from '@/utils/categories';
 import Search from '@/components/common/search';
 import { vendorsListings } from '@/utils/vendorslistings';
+import Rating from '../../homepage/utils/rating';
 import CustomButton from '@/components/common/customButton';
 
 const Categories = () => {
@@ -147,23 +148,31 @@ const Categories = () => {
           <Search onSearch={handleSearch} />
         </div>
       </div>
-      <div className='w-full my-6 grid grid-cols-2 gap-6 md:grid-cols-3 md:w-[90%] mx-auto pb-4 relative'>
-        {filteredVendorsListings.length > 0 ? (
-
-          filteredVendorsListings.map((listing, index) => (
-            <div key={index} className="card-shadow cursor-pointer">
-              <div className="w-full h-[285px]">
-                <Image src={listing.image} alt="image" width={393} height={282} />
+      <div className='w-[90%] mx-auto my-6 grid gap-6 sm:grid-cols-1 sm-md:grid-cols-2 sm-md:gap-2 
+          md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 relative'>  
+          {filteredVendorsListings.length > 0 ? (
+            
+            filteredVendorsListings.map((listing, index) => (
+              <div key={index} className="flex flex-col card-shadow w-full">
+                <div className="w-full aspect-w-4 aspect-h-3">
+                  <Image src={listing.image} alt="image" width={393} height={282} />
+                </div>
+                <div className="flex items-center justify-between px-3">
+                  <h3 className="sm:text-sm sm-md:text-[10px] md:text-sm lg:text-[16px] text-yellow font-bold">{listing.name}</h3>
+                  <section className="flex flex-col items-start justify-end gap-1 sm-md:gap-2 p-3">
+                    {listing.rating && <Rating rating={listing.rating} />}
+                    <div className="flex items-center justify-start gap-2">
+                      <Image src="./svg/location.svg" alt="location-icon" width={8} height={8}/>
+                      <p className="text-white text-sm sm-md:text-[8px] md:text-sm lg:text-[10px] font-['Satoshi'] font-normal">{listing.location}</p>
+                    </div>
+                  </section>
+                </div>     
+                <p className="card-text p-3 text-sm md:text-sm lg:text-md">{listing.description}</p>
               </div>
-              <div className="flex flex-col p-3">
-                <h3 className="text-[1.3rem] text-yellow font-bold">{listing.name}</h3>
-              </div>
-              <p className="card-text p-3">{listing.description}</p>
-            </div>
-          ))
-        ) : (
-          <h2 className="text-center text-black text-lg mb-10">Vendor does not exist.</h2>
-        )}
+            )) 
+          ) : (
+            <h2 className="text-center text-black text-lg mb-10">Vendor does not exist.</h2>
+          )}     
       </div>
       {selectedListing && (
         <div className="modal fixed top-0 left-0 w-full h-full center">

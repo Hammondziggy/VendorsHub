@@ -62,6 +62,13 @@ body, html {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
+/* Placeholder styles */
+.placeholder-style::placeholder {
+  color: #888;
+  font-size: 1rem;
+  opacity: 0.75;
+}
+
 /* Loading screen style starts */
 .loader {
   width: 112px;
