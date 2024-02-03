@@ -1,5 +1,4 @@
 //'use client';
-
 //page.tsx
 
 import Profile from './profile';

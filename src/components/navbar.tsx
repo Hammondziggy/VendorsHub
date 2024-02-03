@@ -58,7 +58,7 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
               target="_blank"
               onClick={handleCloseMenu}
             >
-              <button className="bg-yellow text-black text-normal font-bold px-8 py-2 rounded cursor-pointer mt-4">
+              <button className="bg-yellow text-black text-normal font-bold rounded-md cursor-pointer mt-4">
                 Register
               </button>
             </Link>

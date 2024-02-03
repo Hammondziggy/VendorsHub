@@ -7,6 +7,7 @@ import VideoGrid from "@/components/videoGrid";
 import Footer from "@/components/footer";
 import Register from "@/components/common/register";
 
+
 const Homepage = () => {
     return (
         <>

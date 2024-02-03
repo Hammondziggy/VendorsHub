@@ -48,7 +48,7 @@ const Services = () => {
           networks for clients to find world-class vendors
         </p>
       </div>
-      <div className={`w-[85%] mx-auto relative ${isMobile ? '' : 'flex gap-2'}`}>
+      <div className={`w-[85%] mx-auto relative  md:overflow-x-scroll scrollbar-hide ${isMobile ? '' : 'flex gap-2'}`}>
         <div className={`w-full flex gap-2 transition-transform ease-in-out duration-1000 transform ${isMobile ? 'flex-col' : ''}`} style={{ transform: `translateX(-${startIndex * (100 / visibleCards) + 1.3}%)` }}>
           {coverageData.map((data, index) => (
             <div

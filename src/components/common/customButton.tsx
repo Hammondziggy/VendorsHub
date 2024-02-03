@@ -1,4 +1,4 @@
-// CustomButton.js
+// CustomButton.ts
 import React from 'react';
 import { CustomButtonTypes } from '@/types/commonTypes/button';
 
