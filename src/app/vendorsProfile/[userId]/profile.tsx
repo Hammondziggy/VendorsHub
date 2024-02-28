@@ -207,4 +207,6 @@ const Profile: React.FC<props> = ({vendor}) => {
   );
 };
 
+Profile.displayName = 'Profile';
+
 export default Profile;

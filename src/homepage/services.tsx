@@ -1,5 +1,5 @@
-//Services component
 "use client";
+//Services component
 
 import React, { useState, useEffect } from "react";
 import Image from 'next/image';
