@@ -7,7 +7,7 @@ const VideoGrid: React.FC = () => {
   return ( 
     <div className="w-full pt-10 pb-20 relative">
       <div className="w-[85%] mx-auto text-white mb-4">
-        <h3 className="font-bold mb-6 text-md">Gallery</h3>
+        <h3 className="sm:text-lg font-bold mb-6 text-xl">Gallery</h3>
         <p className="flex flex-col flex-shrink-0 mb-2 font-light text-[20px]">
           Check out our inspiration gallery to get more ideas for your events
         </p>

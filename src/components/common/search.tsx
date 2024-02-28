@@ -5,10 +5,10 @@ import Image from 'next/image';
 import CustomButton from './customButton';
 
 const Search = ({ onSearch }: any) => {
-  const [searchText, setSearchText] = useState('');
 
   const handleSearch = (e: any) => {
     e.preventDefault();
+    const searchText = e.target.elements.searchInput.value;
     onSearch(searchText);
   };
 
@@ -19,10 +19,11 @@ const Search = ({ onSearch }: any) => {
       </label>
       <form onSubmit={handleSearch} className="p-1 center border border-white w-full rounded-[6px]">
         <input
+          id="searchInput"
           type="text"
           className="w-full bg-primary pl-4 outline-none border-none text-white"
-          value={searchText}
-          onChange={(e) => setSearchText(e.target.value)}
+          // value={searchText}
+          // onChange={(e) => setSearchText(e.target.value)}
         />
         <button
           type="submit"

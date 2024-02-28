@@ -1,8 +1,9 @@
+"use client";
+
 import Link from 'next/link';
 import CustomButton from "@/components/common/customButton";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Navbar from '@/components/navbar';
-
 
 const images = [
     "/images/Enovalab.png",
@@ -42,14 +43,16 @@ const images = [
     )
 }
 
+interface HeroProps {
+  scrollToServices: () => void;
+}
 
-
-const Hero = () => {
+const Hero: React.FC<HeroProps> = ({ scrollToServices }) => {
 
   return (
-    <div className="flex-col w-full flex items-center relative h-screen">
+    <div className="flex-col w-full flex items-center outline-red relative h-screen">
       <HeroSlider />
-      <Navbar className="absolute" />
+      <Navbar className="absolute" scroll={scrollToServices}/>
       <div className="w-[70%] h-30 flex items-center justify-center absolute px-8 py-12 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" 
           style={{
               backgroundColor: 'rgba(0, 0, 0, 0.5)', // Use rgba for both color and opacity

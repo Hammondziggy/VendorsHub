@@ -3,8 +3,8 @@ import '@/app/globals.css';
 
 export default function Home() {
   return (
-    <main className="flex-col center">
+    <div className="flex-col center">
       <Homepage />
-    </main>
+    </div>
   )
 }

@@ -1,6 +1,8 @@
-'use client';
+"use client";
 
+// Categories.tsx
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 import Image from 'next/image';
 import { categories } from '@/utils/categories';
 import Search from '@/components/common/search';
@@ -16,14 +18,8 @@ const Categories = () => {
   const [searchText, setSearchText] = useState('');
 
   useEffect(() => {
-    handleSearch(searchText);
-  }, [searchText]);
-
-  const handleSearch = (searchText: string) => {
-    setSearchText(searchText); // Update the search text state
-
-    if (searchText.trim() === '') {
-      // Empty search text, show all categories
+    if (searchText.trim() === '' || searchText.length === 1) {
+      // Empty search text or just one character, show all vendor listings
       setFilteredVendorsListings(vendorsListings);
     } else {
       // Non-empty search text, filter the listings
@@ -34,7 +30,8 @@ const Categories = () => {
       );
       setFilteredVendorsListings(filteredListings);
     }
-  };
+  }, [searchText]);
+  
 
   const updateVisibleCategories = () => {
     const screenWidth = window.innerWidth;
@@ -145,58 +142,42 @@ const Categories = () => {
       </div>
       <div className="w-[90%] mx-auto my-10">
         <div className="md:w-[40%]">
-          <Search onSearch={handleSearch} />
+          <Search onSearch={setSearchText} />
         </div>
       </div>
       <div className='w-[90%] mx-auto my-6 grid gap-6 sm:grid-cols-1 sm-md:grid-cols-2 sm-md:gap-2 
-          md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 relative'>  
+          md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 relative'>  
           {filteredVendorsListings.length > 0 ? (
-            
+
             filteredVendorsListings.map((listing, index) => (
-              <div key={index} className="flex flex-col card-shadow w-full">
+              <Link 
+                key={listing.id} 
+                href="/vendorsProfile/[userId]" 
+                as={`/vendorsProfile/${listing.id}`}
+                className="flex flex-col card-shadow"
+              >
                 <div className="w-full aspect-w-4 aspect-h-3">
                   <Image src={listing.image} alt="image" width={393} height={282} />
                 </div>
-                <div className="flex items-center justify-between px-3">
-                  <h3 className="sm:text-sm sm-md:text-[10px] md:text-sm lg:text-[16px] text-yellow font-bold">{listing.name}</h3>
-                  <section className="flex flex-col items-start justify-end gap-1 sm-md:gap-2 p-3">
-                    {listing.rating && <Rating rating={listing.rating} />}
-                    <div className="flex items-center justify-start gap-2">
-                      <Image src="./svg/location.svg" alt="location-icon" width={8} height={8}/>
-                      <p className="text-white text-sm sm-md:text-[8px] md:text-sm lg:text-[10px] font-['Satoshi'] font-normal">{listing.location}</p>
-                    </div>
+                <div className="flex items-center justify-between gap-2 py-2 px-3">
+                  <h3 className="sm:text-sm sm-md:text-sm md:text-sm lg:text-[16px] text-yellow font-bold">{listing.name}</h3>
+                  <section className="flex flex-col items-start justify-end gap-1 sm-md:gap-2">
+                    <section className="text-start">{listing.rating && <Rating rating={listing.rating} style="text-sm md:text-sm lg:text-[16px] xl:text-md"/>}</section>                 
+                    <section className="flex items-start justify-start gap-1">
+                      <Image src="./svg/location.svg" alt="location-icon" width={7} height={7} className="mt-[1.6px]"/>
+                      <p className="text-white text-sm sm-md:text-[8px] md:text-sm lg:text-[10px] font-Satoshi font-normal whitespace-nowrap overflow-ellipsis">
+                        {listing.location}
+                      </p>
+                    </section>
                   </section>
                 </div>     
                 <p className="card-text p-3 text-sm md:text-sm lg:text-md">{listing.description}</p>
-              </div>
+              </Link>
             )) 
           ) : (
             <h2 className="text-center text-black text-lg mb-10">Vendor does not exist.</h2>
           )}     
       </div>
-      {selectedListing && (
-        <div className="modal fixed top-0 left-0 w-full h-full center">
-          <div className="w-full md:w-[70%] h-[90%] bg-white center flex-col md:px-[40px] px-[20px] pb-10 rounded-[5px] overflow-y-scroll">
-            <div className="flex items-end justify-end w-full md:mt-[rem] sm:mt-[15rem]">
-              <img src="/svg/cancel.svg" alt="cancel button" width="30px" className="cursor-pointer" onClick={closeModal} />
-            </div>
-            <h3 className="md:text-[2rem] text-[1.3rem] text-blue font-bold">{selectedListing?.name}</h3>
-            <p className="font-bold">{selectedListing?.location}</p>
-            <img src={selectedListing?.image} alt="vendors image" className="my-10 h-[200px]" />
-            <div className="flex flex-col gap-4">
-              <p className="font-bold">Business Owner: {selectedListing?.fullname}</p>
-              <p className="font-bold">Year of experience: {selectedListing?.experience}</p>
-              <p className="font-bold">Services offered: {selectedListing?.service}</p>
-              <div className="text-md mt-4 gap-2">
-                <p className="font-bold">Biography</p>
-                <p className="text-black text-sm md:text-[1rem]">{selectedListing?.description}</p>
-              </div>
-              <p className="font-bold text-sm">Contact details: {selectedListing?.phone}</p>
-              <p className="font-bold text-sm">Social media: {selectedListing?.social}</p>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 };

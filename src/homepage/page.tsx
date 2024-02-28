@@ -1,24 +1,33 @@
-'use client';
+// Homepage.js
+"use client";
 
+import React, { useRef } from 'react';
 import Hero from "./hero";
 import Listings from "./listings";
 import Services from "./services";
 import VideoGrid from "@/components/videoGrid";
-import Footer from "@/components/footer";
 import Register from "@/components/common/register";
-
+import Footer from "@/components/footer";
 
 const Homepage = () => {
-    return (
-        <>
-            <Hero />
-            <Listings />
-            <Services />
-            <VideoGrid />
-            <Register />
-            <Footer />
-        </>
-    );
-}
- 
+  const servicesSectionRef = useRef<HTMLDivElement>(null);
+
+  const scrollToServices = () => {
+    if (servicesSectionRef.current) {
+      servicesSectionRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  return (
+    <>
+      <Hero scrollToServices={scrollToServices} />
+      <Listings />
+      <Services ref={servicesSectionRef} />
+      <VideoGrid />
+      <Register />
+      <Footer />
+    </>
+  );
+};
+
 export default Homepage;

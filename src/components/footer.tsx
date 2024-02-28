@@ -3,7 +3,6 @@
 import Link from 'next/link';
 import Logo from "./common/logo";
 import Image from 'next/image';
-// import { BsFacebook, BsTwitter, BsInstagram, BsGithub } from 'react-icons/bs'
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();

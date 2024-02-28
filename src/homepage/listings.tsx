@@ -14,20 +14,19 @@ const Listings = () => {
   return (
     <div className="w-full py-12">
       <div className="w-[85%] mx-auto">
-        <h2 className='font-bold text-white text-md'>
+        <h2 className='sm:text-lg font-bold mb-6 text-xl text-white'>
           A Trusted Vendors Listing Platform
         </h2>
 
         <div className='my-6 grid gap-6 sm:grid-cols-1 sm-md:grid-cols-2 sm-md:gap-2 
-          md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 relative'>  
+          md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 relative'>  
           {previewListings.map(listing => (
             <Link 
               key={listing.id} 
               href="/vendorsProfile/[userId]" 
               as={`/vendorsProfile/${listing.id}`}
-              className="flex flex-col card-shadow w-full"
+              className="flex flex-col card-shadow"
             >
-              {/* <div className="flex flex-col card-shadow w-full"> */}
               <div className="w-full aspect-w-4 aspect-h-3">
                 <Image src={listing.image} alt="image" width={393} height={282} />
               </div>
@@ -44,7 +43,6 @@ const Listings = () => {
                 </section>
               </div>     
               <p className="card-text p-3 text-sm md:text-sm lg:text-md">{listing.description}</p>
-              {/* </div> */}
             </Link>
           ))}
           <div className='absolute -bottom-16 -right-0'>

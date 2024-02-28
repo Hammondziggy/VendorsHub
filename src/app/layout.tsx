@@ -1,3 +1,6 @@
+//my RootLayout
+
+import React from 'react';
 import './globals.css';
 import '../styles/fonts.css';
 import type { Metadata } from 'next';

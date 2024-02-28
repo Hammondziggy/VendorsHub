@@ -3,7 +3,7 @@
 import Footer from "@/components/footer";
 import NavHero from "./navHero";
 import Register from "@/components/common/register"
-import { coverageData, serviceInfo } from "./utils";
+import { coverageData, serviceInfo } from "../../homepage/utils/serviceUtils";
 
 
 interface CoverageProps {

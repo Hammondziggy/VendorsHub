@@ -1,5 +1,4 @@
 "use client";
-
 // profile.tsx
 
 import React, { useState } from 'react';
@@ -83,9 +82,9 @@ const Profile: React.FC<props> = ({vendor}) => {
                     alt="chat-icon"
                     className="w-[70%] h-[70%] mx-auto cursor-pointer"
                   />
-                  <div className="flex items-start justify-center w-full">
+                  <Link href="/comingsoon" className="flex items-start justify-center w-full cursor-pointer">
                     <p className="text-white font-normal text-[11px] text-center">Message</p>
-                  </div>
+                  </Link>
                 </div>
                 <div className='flex flex-col items-center justify-center'>
                   <img
@@ -93,9 +92,9 @@ const Profile: React.FC<props> = ({vendor}) => {
                     alt="heart-icon"
                     className="w-[70%] h-[70%] mx-auto cursor-pointer"
                   />
-                  <div className="flex items-start justify-center w-full">
+                  <Link href="/comingsoon" className="flex items-start justify-center w-full cursor-pointer">
                     <p className="text-white font-normal text-[11px] text-center">Likes</p>
-                  </div>
+                  </Link>
                 </div>
                 <div className='flex flex-col items-center justify-center'>
                   <img
@@ -103,9 +102,9 @@ const Profile: React.FC<props> = ({vendor}) => {
                     alt="telephone-icon"
                     className="w-[70%] h-[70%] mx-auto cursor-pointer"
                   />
-                  <div className="flex items-start justify-center w-full">
+                  <Link href="/comingsoon" className="flex items-start justify-center w-full cursor-pointer">
                     <p className="text-white font-normal text-[11px] text-center">Call</p>
-                  </div>
+                  </Link>
                 </div>
               </section>
               <p className="card-text p-3 text-sm md:text-sm lg:text-md w-full mx-auto text-center">{vendor.description}</p>
@@ -159,7 +158,7 @@ const Profile: React.FC<props> = ({vendor}) => {
           </div>
         </div>
         <div className='flex justify-center mt-10'>
-          <Link href="@/*" className='cursor-pointer min-w-[30%] h-[3rem]'>
+          <Link href="/comingsoon" className='cursor-pointer min-w-[30%] h-[3rem]'>
             <CustomButton
               onClick={() => {}}
               borderRadius="6px"
@@ -195,12 +194,13 @@ const Profile: React.FC<props> = ({vendor}) => {
               onChange={handleTextareaChange}
             />
 
-            <button
-              type="submit"
-              className='w-[25%] h-[3rem] bg-primary mt-12 text-md font-medium border border-[#F5BD02] border-opacity-25 text-[#F5BD02] rounded-md mx-auto'
-            >
-              Post
-            </button>
+              <Link 
+                href="/comingsoon"
+                type="submit"
+                className='block w-[25%] h-[3rem] bg-primary mt-12 text-md font-medium border border-[#F5BD02] border-opacity-25 text-[#F5BD02] rounded-md mx-auto flex items-center justify-center'
+              >
+                Post
+              </Link>
           </form>
         </div>
     </div>

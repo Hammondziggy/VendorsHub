@@ -1,8 +1,11 @@
+//Services component
+"use client";
+
 import React, { useState, useEffect } from "react";
 import Image from 'next/image';
-import { coverageData } from "../app/service/utils";
+import { coverageData } from "./utils/serviceUtils";
 
-const Services = () => {
+const Services = React.forwardRef<HTMLDivElement>((_, ref) => {
   const [visibleCards, setVisibleCards] = useState(3);
   const [startIndex, setStartIndex] = useState(visibleCards);
   const [isMobile, setIsMobile] = useState(false);
@@ -40,7 +43,7 @@ const Services = () => {
   };
 
   return (
-    <div className={`w-full pt-12 pb-12 ${isMobile ? 'flex flex-col items-center' : ''}`}>
+    <div ref={ref} className={`w-full pt-12 pb-12 ${isMobile ? 'flex flex-col items-center' : ''}`}>
       <div className="text-white w-[85%] mx-auto mb-2">
         <h3 className="sm:text-md font-bold mb-6 text-lg">Services We Offer</h3>
         <p className="flex flex-col mb-3 font-light sm:text-normal text-[20px]">
@@ -48,7 +51,7 @@ const Services = () => {
           networks for clients to find world-class vendors
         </p>
       </div>
-      <div className={`w-[85%] mx-auto relative  md:overflow-x-scroll scrollbar-hide ${isMobile ? '' : 'flex gap-2'}`}>
+      <div className={`w-[85%] mx-auto relative ${isMobile ? '' : 'flex gap-2'}`}>
         <div className={`w-full flex gap-2 transition-transform ease-in-out duration-1000 transform ${isMobile ? 'flex-col' : ''}`} style={{ transform: `translateX(-${startIndex * (100 / visibleCards) + 1.3}%)` }}>
           {coverageData.map((data, index) => (
             <div
@@ -82,6 +85,6 @@ const Services = () => {
       </div>
     </div>
   );
-};
+});
 
 export default Services;
