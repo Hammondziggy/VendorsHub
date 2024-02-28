@@ -86,5 +86,6 @@ const Services = React.forwardRef<HTMLDivElement>((_, ref) => {
     </div>
   );
 });
+Services.displayName = 'Services';
 
 export default Services;
