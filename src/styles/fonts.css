@@ -3,9 +3,3 @@
 .satoshi {
     font-family: 'Satoshi', sans-serif;
 }
-::placeholder{
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 48.6px;
-    color: #888888;
-}

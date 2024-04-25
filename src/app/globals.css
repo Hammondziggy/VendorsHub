@@ -8,7 +8,9 @@ body, html {
   margin: 0;
   overflow-x: hidden;
 }
-
+li{
+  cursor: pointer;
+}
 .center {
   display: flex;
   align-items: center;
@@ -65,7 +67,7 @@ body, html {
 /* Placeholder styles */
 .placeholder-style::placeholder {
   color: #888;
-  font-size: 1rem;
+  font-size: 36px;
   opacity: 0.75;
 }
 
@@ -303,3 +305,18 @@ body, html {
   }
 }
 /* Loading screen ends */
+
+/* filter box style */
+.filter-container{
+  max-width: 250px;
+  width: 100%;
+  position: absolute;
+  /* top: 265px;
+  right: 50px; */
+  z-index: 999;
+}
+.filter-content{
+  max-width: 200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}

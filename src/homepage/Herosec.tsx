@@ -4,6 +4,7 @@ import Link from "next/link";
 import CustomButton from "@/components/common/customButton";
 import { useState, useEffect } from "react";
 import Navbar from "@/components/navbar";
+import FilterBox from "@/components/filterBox";
 
 const images = [
   "/images/Enovalab.png",
@@ -51,6 +52,10 @@ interface HeroProps {
 }
 
 const Hero: React.FC<HeroProps> = ({ scrollToServices }) => {
+  const [filterBox, setfilterBox] = useState(false);
+  const showFilterBox = () => {
+    setfilterBox(!filterBox);
+  };
   return (
     <div className="flex-col w-full flex items-center outline-red relative h-screen">
       <HeroSlider />
@@ -65,8 +70,10 @@ const Hero: React.FC<HeroProps> = ({ scrollToServices }) => {
               <img
                 src="/icons/filter-icon.png"
                 alt="filtter icon"
-                className="absolute top-[1rem] left-[15rem] z-10 w-9 md:w-10 md:left-[37rem] lg:left-[38rem]"
+                onClick={showFilterBox}
+                className="absolute top-[1rem] left-[15rem] z-10 w-9 md:w-10 md:left-[37rem] lg:left-[38rem] cursor-pointer"
               />
+
               <input
                 type="text"
                 className=" outline-none pr-[7rem] pl-3 py-4 rounded-md md:pr-[30rem] "
@@ -89,6 +96,7 @@ const Hero: React.FC<HeroProps> = ({ scrollToServices }) => {
               Hire Now
             </CustomButton>
           </Link>
+          {filterBox && <FilterBox />}
         </div>
       </div>
     </div>
