@@ -1,14 +1,15 @@
-@import '@splidejs/react-splide/css';
+@import "@splidejs/react-splide/css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body, html {
+body,
+html {
   padding: 0;
   margin: 0;
   overflow-x: hidden;
 }
-li{
+li {
   cursor: pointer;
 }
 .center {
@@ -42,7 +43,7 @@ li{
 }
 
 .card-text {
-  color: #FFF;
+  color: #fff;
   font-family: Satoshi;
   font-size: 13px;
   font-style: normal;
@@ -80,7 +81,7 @@ li{
 .box1,
 .box2,
 .box3 {
-  border: 16px solid #00CC83;
+  border: 16px solid #00cc83;
   box-sizing: border-box;
   position: absolute;
   display: block;
@@ -307,16 +308,46 @@ li{
 /* Loading screen ends */
 
 /* filter box style */
-.filter-container{
+.filter-container {
   max-width: 250px;
   width: 100%;
+  padding: 5px;
   position: absolute;
-  /* top: 265px;
-  right: 50px; */
+  background-color: #fff;
+  z-index: 999;
+  overflow: hidden;
+}
+.btn-box {
+  width: 190px;
+  margin: 18px auto;
+  position: relative;
+}
+.filter-btn {
+  padding: 0 10px;
+  position: relative;
+}
+.btn-underline::after {
+  content: '';
+  position: absolute;
+  top: 25px;
+  left: 10px;
+  background: #1e1e1e;
+  border-radius: 6px;
+  width: 80px;
+  height: 0.178rem;
+  cursor: pointer;
+}
+.filter-group {
+  position: absolute;
+  left: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   z-index: 999;
 }
-.filter-content{
-  max-width: 200px;
-  margin: 0 auto;
-  padding: 0 1rem;
+.active{
+  color: #f5bd02;
+}
+.filter-group li:hover {
+  color: #f5bd02;
 }
