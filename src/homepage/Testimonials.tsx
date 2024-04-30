@@ -13,7 +13,7 @@ const Testimonial = () => {
           {Testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="bg-white lg:w-[32%] md:w-[49%] h-[470px] w-full rounded-sm p-8 flex flex-col justify-center "
+              className="bg-white shadow-xl shadow-[#F5BD0266] lg:w-[32%] md:w-[49%] h-[470px] w-full rounded-sm p-8 flex flex-col justify-center "
             >
               {/* <div className="flex flex-col  items-center">
                 <div>
