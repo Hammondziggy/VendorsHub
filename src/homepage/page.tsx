@@ -2,7 +2,8 @@
 "use client";
 
 import React, { useRef } from 'react';
-import Hero from "./hero";
+// import Hero from "./hero";
+import Hero from "./Herosec";
 import Listings from "./listings";
 import Services from "./services";
 import VideoGrid from "@/components/videoGrid";
