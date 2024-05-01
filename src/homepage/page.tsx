@@ -2,10 +2,12 @@
 "use client";
 
 import React, { useRef } from 'react';
-import Hero from "./hero";
+// import Hero from "./hero";
+import Hero from "./Herosec";
 import Listings from "./listings";
 import Services from "./services";
 import VideoGrid from "@/components/videoGrid";
+import Testimonial from './Testimonials';
 import Register from "@/components/common/register";
 import Footer from "@/components/footer";
 
@@ -24,6 +26,7 @@ const Homepage = () => {
       <Listings />
       <Services ref={servicesSectionRef} />
       <VideoGrid />
+      <Testimonial/>
       <Register />
       <Footer />
     </>
