@@ -3,8 +3,8 @@
 import Link from 'next/link';
 import CustomButton from "@/components/common/customButton";
 import { useState, useEffect } from "react";
-import Navbar from '@/components/navbar';
-
+// import Navbar from '@/components/NavigationBar';
+import Navbar from '@/components/NavigationBar';
 const images = [
     "/images/Enovalab.png",
     "./images/heroSlideIn1.png",

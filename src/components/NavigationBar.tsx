@@ -37,15 +37,16 @@ const Navbar: React.FC<NavbarProps> = ({ className, scroll }) => {
         <LogoImage />
         <div className="hidden md:flex items-center gap-6 text-[1.4rem] font-medium">
           <Link href="/vendorsListings">Categories</Link>
-          <Link href="/#services" onClick={scroll}>
-            Services
+          <Link href="/#gallery" onClick={scroll}>
+            Gallery
           </Link>
+          <Link href="/">Sign Up</Link>
           <Link
             href="https://docs.google.com/forms/d/1diP-bM8dIQaQngA4dmq4E1laLlVLltujahS6osRTjpM/edit?usp=sharing_eil_se_dm&ts=64abcbfc"
             target="_blank"
           >
-            <button className="bg-yellow text-black px-12 py-3 text-[24px] font-medium rounded-[5px] cursor-pointer">
-              Register
+            <button className="bg-yellow text-black px-[5rem] py-3 text-[24px] font-medium rounded-[5px] cursor-pointer">
+              Login
             </button>
           </Link>
         </div>
@@ -57,9 +58,13 @@ const Navbar: React.FC<NavbarProps> = ({ className, scroll }) => {
       <div
         className={
           openMenu
-            ? "fixed w-[250px] bg-white text-black top-0 right-0  ease-in duration-500 h-screen pl-5 pt-5 z-50"
+            ? "fixed w-[250px] text-black top-0 right-0  ease-in duration-500 h-screen pl-5 pt-5 z-50"
             : "fixed right-[-100%] top-0 ease-in duration-[850ms]"
         }
+        style={{
+          backgroundColor: "rgba(255, 255, 255, 0.2)",
+          backdropFilter: "blur(10px)"
+        }}
       >
         <div className="w-[90%] flex-col flex cursor-pointer">
           <div className="flex items-end justify-end" onClick={handleCloseMenu}>
@@ -73,15 +78,16 @@ const Navbar: React.FC<NavbarProps> = ({ className, scroll }) => {
             <Link href="/service">
               {" "}
               {/* Add onClick handler */}
-              Services
+              Gallery
             </Link>
+            <Link href="/">Sign Up</Link>
             <Link
               href="https://docs.google.com/forms/d/1diP-bM8dIQaQngA4dmq4E1laLlVLltujahS6osRTjpM/edit?usp=sharing_eil_se_dm&ts=64abcbfc"
               target="_blank"
               onClick={handleCloseMenu}
             >
               <button className="bg-yellow text-black text-normal font-bold rounded cursor-pointer mt-4 py-2 px-2">
-                Register
+                Login
               </button>
             </Link>
           </div>
