@@ -146,7 +146,7 @@ const Categories = () => {
         </div>
       </div>
       <div className='w-[90%] mx-auto my-6 grid gap-6 sm:grid-cols-1 sm-md:grid-cols-2 sm-md:gap-2 
-          md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 relative'>  
+          md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 relative'>  
           {filteredVendorsListings.length > 0 ? (
 
             filteredVendorsListings.map((listing, index) => (

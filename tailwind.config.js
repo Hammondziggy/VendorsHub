@@ -34,6 +34,7 @@ module.exports = {
       rating: '#FFF59E',
       error: '#DA0060',
       yellow: '#F5BD02',
+      yl: 'FF8100',
     },
     extend: {
       screens: {

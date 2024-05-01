@@ -52,7 +52,7 @@ export const Review: React.FC<ReviewProps> = ({ starSvg }) => {
 
 const Profile: React.FC<props> = ({vendor}) => {
   const [textareaValue, setTextareaValue] = useState('');
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState('');
 
   const handleSubmit = (event :any) => {
     
@@ -197,7 +197,7 @@ const Profile: React.FC<props> = ({vendor}) => {
               <Link 
                 href="/comingsoon"
                 type="submit"
-                className='block w-[25%] h-[3rem] bg-primary mt-12 text-md font-medium border border-[#F5BD02] border-opacity-25 text-[#F5BD02] rounded-md mx-auto flex items-center justify-center'
+                className='w-[25%] h-[3rem] bg-primary mt-12 text-md font-medium border border-[#F5BD02] border-opacity-25 text-[#F5BD02] rounded-md mx-auto flex items-center justify-center'
               >
                 Post
               </Link>

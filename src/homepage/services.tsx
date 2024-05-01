@@ -12,14 +12,14 @@ const Services = React.forwardRef<HTMLDivElement>((_, ref) => {
 
   const updateVisibleCards = () => {
     const screenWidth = window.innerWidth;
-    let newVisibleCards = 3;
+    let newVisibleCards = 4;
 
-    if (screenWidth < 480) {
+    if (screenWidth < 389) {
       newVisibleCards = 1;
       setIsMobile(true);
-    } else if (screenWidth < 768) {
+    } else if (screenWidth <= 480) {
       newVisibleCards = 2;
-      setIsMobile(true);
+      setIsMobile(false);
     } else {
       setIsMobile(false);
     }
@@ -43,27 +43,27 @@ const Services = React.forwardRef<HTMLDivElement>((_, ref) => {
   };
 
   return (
-    <div ref={ref} className={`w-full pt-12 pb-12 ${isMobile ? 'flex flex-col items-center' : ''}`}>
+    <div ref={ref} className="w-full pt-12 pb-12">
       <div className="text-white w-[85%] mx-auto mb-2">
-        <h3 className="sm:text-md font-bold mb-6 text-lg">Services We Offer</h3>
-        <p className="flex flex-col mb-3 font-light sm:text-normal text-[20px]">
+        <h3 className="sm:text-lg font-bold mb-6 text-xl text-white">Services We Offer</h3>
+        <p className="flex flex-col flex-shrink-0 mb-2 font-light text-[20px]">
           We are a brand hoping to deliver and become one of the largest <br />
           networks for clients to find world-class vendors
         </p>
       </div>
-      <div className={`w-[85%] mx-auto relative ${isMobile ? '' : 'flex gap-2'}`}>
-        <div className={`w-full flex gap-2 transition-transform ease-in-out duration-1000 transform ${isMobile ? 'flex-col' : ''}`} style={{ transform: `translateX(-${startIndex * (100 / visibleCards) + 1.3}%)` }}>
+      <div className={`w-[85%] mx-auto border border-yellow`}>
+        <div className={`w-full flex gap-2 ${ isMobile ? 'flex-col overflow-hidden' : ''}`}>
           {coverageData.map((data, index) => (
             <div
               key={index}
-              className={`relative flex-shrink-0 ${isMobile ? 'mb-4' : ''}`}
+              className={`relative flex-shrink-0`}
               style={{
                 background: `linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url(${data.backgroundImg}) center/cover no-repeat`,
-                width: "328px",
-                height: "416px",
+                width: '328px',
+                height: '416px',
               }}
             >
-              <div className="aspect-w-full aspect-h-9 flex flex-col items-start gap-2 text-white p-4 absolute top-60">
+              <div className={`aspect-w-full aspect-h-9 flex flex-col items-start gap-2 text-white p-4 absolute text-lg top-60`}>
                 <h3 className="font-bold text-[24px] leading-normal">{data.title}</h3>
                 <p className="font-light text-[14px]">{data.body}</p>
               </div>
@@ -71,6 +71,7 @@ const Services = React.forwardRef<HTMLDivElement>((_, ref) => {
           ))}
         </div>
       </div>
+
       {/* add nextBtn here */}
       <div className="flex justify-end w-[85%] mx-auto mt-2">
         <div className="hidden lg:block" onClick={showNextCard}>
