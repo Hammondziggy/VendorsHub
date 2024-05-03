@@ -5,8 +5,8 @@ import React, { useRef } from 'react';
 // import Hero from "./hero";
 import Hero from "./Herosec";
 import Listings from "./listings";
-import Services from "./services";
 import VideoGrid from "@/components/videoGrid";
+import Promo from "./promo"
 import Testimonial from './Testimonials';
 import Register from "@/components/common/register";
 import Footer from "@/components/footer";
@@ -24,8 +24,8 @@ const Homepage = () => {
     <>
       <Hero scrollToServices={scrollToServices} />
       <Listings />
-      <Services ref={servicesSectionRef} />
       <VideoGrid />
+      <Promo/>
       <Testimonial/>
       <Register />
       <Footer />

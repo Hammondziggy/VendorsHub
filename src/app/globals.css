@@ -307,6 +307,24 @@ li {
 }
 /* Loading screen ends */
 
+/* Promo style */
+.promo-img{
+  max-width: 100%;
+  height: 100%;
+}
+.title{
+  font-family: 'Satoshi';
+  font-weight: 900;
+  font-size: 48px;
+  line-height: 64.8px;
+}
+.promo-para{
+  width: 639px;
+  font-family: 'Satoshi';
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 32.4px;
+}
 /* filter box style */
 .filter-container {
   max-width: 250px;
