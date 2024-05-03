@@ -37,10 +37,11 @@ const Navbar: React.FC<NavbarProps> = ({ className, scroll }) => {
         <LogoImage />
         <div className="hidden md:flex items-center gap-6 text-[1.4rem] font-medium">
           <Link href="/vendorsListings">Categories</Link>
-          <Link href="/#services" onClick={scroll}>Services</Link>
-          <Link href="https://docs.google.com/forms/d/1diP-bM8dIQaQngA4dmq4E1laLlVLltujahS6osRTjpM/edit?usp=sharing_eil_se_dm&ts=64abcbfc" target="_blank">
-            <button className="bg-yellow text-black px-12 py-3 text-[24px] font-medium rounded-[5px] cursor-pointer">
-              Register
+          <Link href="/galleryPage">Gallery</Link>
+          <Link href="/auth/signup">Sign up</Link>
+          <Link href="/auth/login">
+            <button className="bg-yellow text-black px-14 py-3 text-[24px] font-medium rounded-[5px] cursor-pointer">
+              Log In
             </button>
           </Link>
         </div>
@@ -51,20 +52,23 @@ const Navbar: React.FC<NavbarProps> = ({ className, scroll }) => {
       {openMenu && (
         <div className="w-full bg-white text-black absolute top-0 right-0 left-0 center py-6 z-50">
           <div className="w-[90%] flex-col flex cursor-pointer">
-            <div className="flex items-end justify-end" onClick={handleCloseMenu}>
+            <div className="flex items-end justify-end cursor-pointer" onClick={handleCloseMenu}>
               <FaTimes className="text-[1.5rem] hover:text-yellow cursor-pointer" />
             </div>
             <div className="md:hidden flex flex-col text-[1rem] mt-4">
               <Link href="/vendorsListings" onClick={handleCloseMenu}>
                 Categories
               </Link>
-              {/* LInk to the services section is below */}
-              <Link href="/service"> {/* Add onClick handler */}
-                Services
+              {/* LInk to the gallery section is below */}
+              <Link href="/galleryPage"> {/* Add onClick handler */}
+                Gallery
               </Link>
-              <Link href="https://docs.google.com/forms/d/1diP-bM8dIQaQngA4dmq4E1laLlVLltujahS6osRTjpM/edit?usp=sharing_eil_se_dm&ts=64abcbfc" target="_blank" onClick={handleCloseMenu}>
+              <Link href="/auth/signup"> {/* Add onClick handler */}
+                Sign up
+              </Link>
+              <Link href="/auth/login" onClick={handleCloseMenu}>
                 <button className="bg-yellow text-black text-normal font-bold rounded cursor-pointer mt-4">
-                  Register
+                  Log In
                 </button>
               </Link>
             </div>

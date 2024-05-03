@@ -38,7 +38,7 @@ export const Login = ({logo, title} : IndexType) => {
                 
                 <p className='text-center font-medium md:text-normal text-[10px] lg:text-normal xl:text-normal'>
                     Don't have an account?
-                    <Link href= "" className='text-[#FF8100]'> Sign Up</Link>
+                    <Link href= "/auth/signup" className='text-[#FF8100]'> Sign Up</Link>
                 </p>
             </div>
         </div>
