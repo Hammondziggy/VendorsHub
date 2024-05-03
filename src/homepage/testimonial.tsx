@@ -1,6 +1,4 @@
-'use client';
-
-import Image from 'next/image'
+import Image from 'next/image';
 import { Testimonials } from "./utils/testimonial";
 const Testimonial = () => {
     return (

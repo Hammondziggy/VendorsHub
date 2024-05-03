@@ -1,5 +1,3 @@
-"use client";
-
 import Footer from "@/components/footer";
 import NavHero from "./navHero";
 import Register from "@/components/common/register"

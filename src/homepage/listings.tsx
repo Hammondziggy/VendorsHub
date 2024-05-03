@@ -1,15 +1,39 @@
-// 'use client';
+'use client';
 
-import React from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import CustomButton from '@/components/common/customButton';
 import { vendorsListings } from '../utils/vendorslistings'; 
 import Rating from './utils/rating';
 
-// ... (existing imports)
 const Listings = () => {
-  const previewListings = vendorsListings.slice(0, 6);
+  const [windowWidth, setWindowWidth] = useState<number | null>(null);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    // Initialize window width on component mount
+    setWindowWidth(window.innerWidth);
+
+    // Listen for window resize events
+    window.addEventListener('resize', handleResize);
+
+    // Clean up event listener on component unmount
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+  
+  if (windowWidth === null) {
+    // Return loading state or render nothing until window width is initialized
+    return <p>Loading...</p>;
+  }
+  
+  const xlColumns = windowWidth >= 1280;
+  const previewListings = xlColumns ? vendorsListings.slice(0, 8) : vendorsListings.slice(0, 6);
 
   return (
     <div className="w-full py-12">
@@ -19,7 +43,7 @@ const Listings = () => {
         </h2>
 
         <div className='my-6 grid gap-6 sm:grid-cols-1 sm-md:grid-cols-2 sm-md:gap-2 
-          md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 relative'>  
+          md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 relative'>  
           {previewListings.map(listing => (
             <Link 
               key={listing.id} 
