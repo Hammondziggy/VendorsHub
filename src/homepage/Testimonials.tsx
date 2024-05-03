@@ -13,30 +13,13 @@ const Testimonial = () => {
           {Testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="bg-white shadow-xl shadow-[#F5BD0266] lg:w-[32%] md:w-[49%] h-[470px] w-full rounded-sm p-8 flex flex-col justify-center "
+              className="bg-white shadow-xl shadow-[#F5BD0266] lg:w-[32%] md:w-[49%] h-[470px] w-full rounded-sm p-8 flex flex-col justify-center gap-8"
             >
-              {/* <div className="flex flex-col  items-center">
-                <div>
-                  <p className="md:text-[1rem] md:w-[229.97px] text-sm -mt-10  ">
-                    {testimonial.testimony}
-                  </p>
-                </div>
-                <div className="flex items-center gap-3 mt-3">
-                  <Image
-                    src={testimonial.image}
-                    alt="image"
-                    width={60}
-                    height={60}
-                    className="rounded-full"
-                  />
-                  <div className="flex flex-col text-sm">
-                    <p className="font-bold text-[1rem]">{testimonial.name}</p>
-                    <p>{testimonial.user}</p>
-                  </div>
-                </div>
-              </div> */}
               <div>
-                <p className="mb-8 md:text-[1rem] md:w-[279.97px] text-sm -mt-10 h-[150px] ">
+                <img src="/images/Stars.svg" alt="ratings" />
+              </div>
+              <div>
+                <p className=" md:text-[1rem] md:w-[279.97px] text-sm   ">
                   {testimonial.testimony}
                 </p>
               </div>
