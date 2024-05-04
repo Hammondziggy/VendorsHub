@@ -1,5 +1,4 @@
 'use client';
-
 import React from 'react';
 import { Input } from '../input';
 import CustomButton from "@/components/common/customButton";
@@ -10,7 +9,7 @@ type IndexType = {
     title: string;
 }
 
-export const Login = ({logo, title} : IndexType) => {
+export const Login = ({ logo, title }: IndexType) => {
     return (
         <div className="bg-white w-[65%] md:max-w-[32rem] lg:max-w-[40rem] h-fit mx-auto px-6 py-16 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-3xl">
             <div className="flex flex-col gap-9 mx-auto max-w-sm h-fit">
@@ -19,8 +18,18 @@ export const Login = ({logo, title} : IndexType) => {
                     <h6 className='xl:text-lg md:text-md text-[16px] font-bold text-center mt-4'>{title}</h6>
                 </div>
                 <form className='flex flex-col gap-6'>
-                    <Input label="Username" placeholder="Enter Username" type="text" name="username" />
-                    <Input label="Password" placeholder="Enter Password" type="password" name="pwd" />
+                    <Input 
+                        label="Username" 
+                        placeholder="Enter Username" 
+                        type="text" 
+                        name="username" 
+                    />
+                    <Input
+                        label="Password"
+                        placeholder="Enter Password"
+                        type="password"
+                        name="pwd"
+                    />
                 </form>
                 <CustomButton
                     onClick={() => {}}
@@ -42,6 +51,5 @@ export const Login = ({logo, title} : IndexType) => {
                 </p>
             </div>
         </div>
-
     );
 }
