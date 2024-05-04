@@ -40,17 +40,16 @@ const Navbar: React.FC<NavbarProps> = ({ className, scroll }) => {
           <Link href="/#gallery" onClick={scroll}>
             Gallery
           </Link>
-          <Link href="/">Sign Up</Link>
+          <Link href="/auth/signup">Sign Up</Link>
           <Link
-            href="https://docs.google.com/forms/d/1diP-bM8dIQaQngA4dmq4E1laLlVLltujahS6osRTjpM/edit?usp=sharing_eil_se_dm&ts=64abcbfc"
-            target="_blank"
+            href="/auth/login"
           >
             <button className="bg-yellow text-black px-[5rem] py-3 text-[24px] font-medium rounded-[5px] cursor-pointer">
               Login
             </button>
           </Link>
         </div>
-        <div className="md:hidden" onClick={handleOpenMenu}>
+        <div className="md:hidden cursor-pointer" onClick={handleOpenMenu}>
           <Image src="/svg/menu.svg" alt="menu" width={27} height={27} />
         </div>
       </div>
@@ -71,20 +70,16 @@ const Navbar: React.FC<NavbarProps> = ({ className, scroll }) => {
             <FaTimes className="text-[1.5rem] hover:text-yellow cursor-pointer" />
           </div>
           <div className="md:hidden flex flex-col gap-[1rem] mt-4">
-            <Link href="/vendorsListings" onClick={handleCloseMenu}>
+            <Link href="/vendorsListings">
               Categories
             </Link>
             {/* LInk to the services section is below */}
-            <Link href="/service">
-              {" "}
-              {/* Add onClick handler */}
+            <Link href="/gallery">
               Gallery
             </Link>
-            <Link href="/">Sign Up</Link>
+            <Link href="/auth/signup">Sign Up</Link>
             <Link
-              href="https://docs.google.com/forms/d/1diP-bM8dIQaQngA4dmq4E1laLlVLltujahS6osRTjpM/edit?usp=sharing_eil_se_dm&ts=64abcbfc"
-              target="_blank"
-              onClick={handleCloseMenu}
+              href="/auth/login"
             >
               <button className="bg-yellow text-black text-normal font-bold rounded cursor-pointer mt-4 py-2 px-2">
                 Login
