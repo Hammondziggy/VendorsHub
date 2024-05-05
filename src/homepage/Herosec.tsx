@@ -3,7 +3,7 @@
 import Link from "next/link";
 import CustomButton from "@/components/common/customButton";
 import { useState, useEffect } from "react";
-import Navbar from "@/components/navbar";
+import Navbar from "@/components/NavigationBar";
 import FilterBox from "@/components/filterBox";
 
 const images = [
@@ -47,11 +47,7 @@ export const HeroSlider = () => {
   );
 };
 
-interface HeroProps {
-  scrollToServices: () => void;
-}
-
-const Hero: React.FC<HeroProps> = ({ scrollToServices }) => {
+const Hero = () => {
   const [filterBox, setfilterBox] = useState(false);
   const showFilterBox = () => {
     setfilterBox(!filterBox);
@@ -59,7 +55,7 @@ const Hero: React.FC<HeroProps> = ({ scrollToServices }) => {
   return (
     <div className="flex-col w-full flex items-center outline-red relative h-screen">
       <HeroSlider />
-      <Navbar className="absolute" scroll={scrollToServices} />
+      <Navbar className="absolute" />
       <div className="w-[70%] h-30 flex items-center justify-center absolute px-8 py-12 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
         <div className="flex-col flex items-center gap-6 rounded-md">
           <p className="text-white text-md md:text-[26px] lg:text-lg xl:text-xl text-center mb-4 md:w-[800px] font-medium">

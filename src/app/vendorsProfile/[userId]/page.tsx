@@ -2,7 +2,7 @@
 //page.tsx
 
 import Profile from './profile';
-import Navbar from '@/components/navbar';
+import Navbar from '@/components/NavigationBar';
 import Footer from '@/components/footer';
 import { vendorsListings } from '@/utils/vendorslistings';
 import ErrorVendorPage from "./error";

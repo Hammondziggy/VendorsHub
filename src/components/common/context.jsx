@@ -34,17 +34,6 @@ export const AppProvider = ({ children }) => {
     // Return loading state or render nothing until window width is initialized
     return <p>Loading...</p>;
   }
-
-  const servicesSectionRef = useRef(null);
-  
-  useEffect(() => {
-    // Check if servicesSectionRef is not null and scroll to it
-    if (servicesSectionRef.current) {
-      servicesSectionRef.current.scrollIntoView({ behavior: 'smooth' });
-    }
-  }, []);
-  
-  console.log("Initial value of servicesSectionRef:", servicesSectionRef.current);
   
   return (
     <AppContext.Provider value={{ windowWidth, servicesSectionRef }}>
