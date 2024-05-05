@@ -1,4 +1,4 @@
-'use client';
+// 'use client';
 import React, { useState} from 'react';
 import { Input } from '../input';
 import CustomButton from "@/components/common/customButton";
@@ -46,7 +46,7 @@ export const Signup = ({logo, title} : IndexType) => {
                 >
                     Sign Up
                 </CustomButton>
-                <Link href="" className="flex items-center gap-2 justify-center cursor-pointer md:gap-2 lg:gap-4">
+                <Link href="/comingsoon" className="flex items-center gap-2 justify-center cursor-pointer md:gap-2 lg:gap-4">
                     <div className='w-[1.4rem] h-[1.4rem] rounded-sm bg-white flex items-center justify-center shadow-lg p-1'>
                         <img src="/icons/google-favicon.png" alt="Google Favicon" className="inline-block max-w-full max-h-full" />
                     </div>
@@ -54,6 +54,5 @@ export const Signup = ({logo, title} : IndexType) => {
                 </Link>
             </div>
         </div>
-
     );
 }
