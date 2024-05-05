@@ -1,4 +1,4 @@
-// 'use client';
+'use client';
 import React, { useState} from 'react';
 import { Input } from '../input';
 import CustomButton from "@/components/common/customButton";

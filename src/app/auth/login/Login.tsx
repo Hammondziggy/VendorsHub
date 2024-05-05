@@ -1,4 +1,4 @@
-// 'use client';
+'use client';
 import React from 'react';
 import { Input } from '../input';
 import CustomButton from "@/components/common/customButton";
@@ -46,7 +46,7 @@ export const Login = ({ logo, title }: IndexType) => {
                 </p>
                 
                 <p className='text-center font-medium md:text-normal text-[10px] lg:text-normal xl:text-normal'>
-                    Don't have an account?
+                    Don&apos;t have an account?
                     <Link href= "/auth/signup" className='text-[#FF8100]'> Sign Up</Link>
                 </p>
             </div>
