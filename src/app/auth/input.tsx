@@ -1,6 +1,8 @@
 'use client';
+
 import React, { useState } from 'react';
 import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
+import { useField } from 'formik';
 
 type InputProps = {
     label: string;
@@ -11,6 +13,7 @@ type InputProps = {
 
 export const Input = ({ label, placeholder, type, name }: InputProps) => {
     const [showPassword, setShowPassword] = useState(false);
+    const [field] = useField(name);
 
     const handleTogglePassword = () => {
         setShowPassword(prevState => !prevState);
@@ -18,14 +21,14 @@ export const Input = ({ label, placeholder, type, name }: InputProps) => {
 
     return (
         <div className="text-[10px] md:text-[12px] lg:text-[15px]">
-            <label className='font-medium'>{label}</label>
+            <label htmlFor={name} className='font-medium'>{label}</label>
             <div className="relative">
                 <input
+                    {...field}
                     className="border border-yellow focus:outline-yellow min-w-full px-4 py-3 text-[10px] md:text-[12px] lg:text-[15px] rounded-sm"
                     placeholder={placeholder}
                     type={type === 'password' && !showPassword ? 'password' : 'text'}
-                    name={name}
-                    required
+                    // required
                 />
                 {type === 'password' && (
                     <span

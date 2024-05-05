@@ -9,21 +9,25 @@ interface CustomButtonProps extends CustomButtonTypes {
   height?: string;
   padding?: string;
   className?: string;
+  type?: string;
+  disabled?: boolean | (() => boolean);
 }
 
 const CustomButton: React.FC<CustomButtonProps> = ({
-  border = 'none',
-  onClick,
   background = '#F5BD02',
-  width,
-  height,
-  textColor = '#1E1E1E',
-  padding,
   borderRadius = '20px',
+  border = 'none',
   cursor = 'pointer',
   children,
-  textSize = 'text-base', // Default to base text size
   className,
+  height,
+  onClick,
+  padding,
+  textColor = '#1E1E1E',
+  textSize = 'text-base', // Default to base text size
+  type,
+  width,
+  disabled,
 }) => {
   const buttonStyle = {
     border,
@@ -35,6 +39,8 @@ const CustomButton: React.FC<CustomButtonProps> = ({
     cursor,
     color: textColor,
     className,
+    type,
+    disabled,
   };
 
   return (

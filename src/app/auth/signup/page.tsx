@@ -1,7 +1,7 @@
 import React from 'react';
 import OuterEllipse from '../../../../public/images/outerEllipse.png';
 import InnerEllipse from '../../../../public/images/innerEllipse.png';
-import { Signup } from './Signup';
+import Signup from './Signup';
 
 const UserSignup = () => {
     return (
