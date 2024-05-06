@@ -37,7 +37,7 @@ const Navbar: React.FC<NavbarProps> = ({ className, scroll }) => {
         <LogoImage />
         <div className="hidden md:flex items-center gap-6 text-[1.4rem] font-medium">
           <Link href="/vendorsListings">Categories</Link>
-          <Link href="/#gallery" onClick={scroll}>
+          <Link href="/galleryPage" onClick={scroll}>
             Gallery
           </Link>
           <Link href="/auth/signup">Sign Up</Link>
