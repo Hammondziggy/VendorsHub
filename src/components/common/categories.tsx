@@ -35,11 +35,14 @@ const Categories = () => {
 
   const updateVisibleCategories = () => {
     const screenWidth = window.innerWidth;
-    let newVisibleCategories = 9;
+    let newVisibleCategories = 6;
 
-    if (screenWidth < 480) {
+    if (screenWidth < 375) {
       newVisibleCategories = 1;
-    } else if (screenWidth < 768) {
+    } else if(screenWidth < 480){
+      newVisibleCategories = 2;
+    }
+     else if (screenWidth < 768) {
       newVisibleCategories = 2;
     } else if (screenWidth < 1024) {
       newVisibleCategories = 3;
@@ -86,21 +89,24 @@ const showLocations = () =>{
   setFilterLocation(!filterLocation)
 }
   return (
-    <div className="w-full mb-6">
+    <div className="w-full mb-6 mt-[85px]">
       <div className="w-full">
-        <div className="flex items-center justify-between mx-6 mt-5">
-          <div onClick={showPreviousCategories}>
-            <Image
-              src="/svg/leftArrow.svg"
-              alt="icon"
-              width={25}
-              height={25}
-              className={`cursor-pointer transition duration-300 ease-in-out hover:border-yellow ${
-                startIndex === 0 ? "hidden" : ""
-              }`}
-            />
-          </div>
-          <div className="flex justify-center flex-wrap gap-4">
+        <h4 className="title sm:text-lg font-normal mb-6 text-xl text-white">
+          Explore popular Categories
+        </h4>
+        <div className="flex flex-col md:flex-row  center items-center gap-3  mx-6 mt-5">
+          <div className="flex justify-center relative flex-wrap gap-10">
+            <div onClick={showPreviousCategories}>
+              <Image
+                src="/icons/prev icon.png"
+                alt="icon"
+                width={30}
+                height={25}
+                className={`cursor-pointer absolute z-50 top-[45px]  transition duration-300 ease-in-out hover:border-yellow ${
+                  startIndex === 0 ? "hidden" : ""
+                }`}
+              />
+            </div>
             {categories
               .slice(startIndex, startIndex + visibleCategories)
               .map((category, index) => (
@@ -112,8 +118,8 @@ const showLocations = () =>{
                     className="border border-white flex items-center justify-center category my-1 rounded-[50%] transition duration-300 ease-in-out transform hover:scale-105 hover:border-yellow border-1 border-transparent group-hover:border-yellow"
                     style={{
                       background: `url(../../images/${category.img}) center/cover no-repeat`,
-                      width: "40px",
-                      height: "40px",
+                      width: "100px",
+                      height: "100px",
                     }}
                   ></div>
                   <p
@@ -124,24 +130,24 @@ const showLocations = () =>{
                   </p>
                 </div>
               ))}
-          </div>
-          <div onClick={showNextCategories} className="mx-2">
-            <Image
-              src="/svg/Next_button.svg"
-              alt="Next-icon"
-              width={25}
-              height={25}
-              className={`cursor-pointer transition duration-300 ease-in-out transform hover:scale-105 hover:border-yellow ${
-                startIndex + visibleCategories >= categories.length
-                  ? "hidden"
-                  : ""
-              }`}
-            />
+            <div onClick={showNextCategories} className="mx-2">
+              <Image
+                src="/icons/next icon.png"
+                alt="Next-icon"
+                width={30}
+                height={25}
+                className={`cursor-pointer absolute top-[45px] left-[310px] md:left-[440px] lg:left-[860px] transition duration-300 ease-in-out transform hover:scale-105 hover:border-yellow ${
+                  startIndex + visibleCategories >= categories.length
+                    ? "hidden"
+                    : ""
+                }`}
+              />
+            </div>
           </div>
 
           <div
             onClick={showLocations}
-            className="border border-white cursor-pointer rounded-[10px] px-4  py-5 h-[28px] flex items-center mx-2 justify-around"
+            className="border border-white cursor-pointer rounded-[10px] px-4  py-5 h-[28px] flex items-center gap-1 mx-2 justify-around"
           >
             <Image
               src="/svg/filter_icon.svg"

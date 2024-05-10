@@ -3,7 +3,7 @@ const LocationFilterBox = () => {
   
   return (
     <>
-      <section className="location-filter rounded-[20px] top-[220px] h-[360px] top-[480px] left-[210px] md:left-[600px] lg:left-[810px] xl:left-[1330px]">
+      <section className="location-filter rounded-[20px] top-[780px] h-[360px] top-[480px] left-[210px] md:left-[600px] md:top-[670px] lg:left-[810px] lg:top-[670px] xl:left-[1200px]">
         <div className="relative">
           <ul className="locations-group">
             <li>Lagos State</li>

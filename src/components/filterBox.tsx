@@ -1,10 +1,13 @@
 "use client";
 import { useState } from "react";
 const FilterBox = () => {
-  const [filter, setFilter] = useState(false);
-  // const [location, setLocations] = useState(false);
-  const fIlter = () => {
-    setFilter(!filter);
+  const [catigories, setCatigories] = useState(false);
+  const [location, setLocations] = useState(false);
+  const showCartigories = () => {
+    setCatigories(!catigories);
+  };
+  const showLocations = () => {
+    setLocations(!location);
   };
   return (
     <>
@@ -12,14 +15,14 @@ const FilterBox = () => {
         <div className="relative">
           <div className="btn-box ">
             <div className="btn-underline"></div>
-            <button className="filter-btn" onClick={fIlter}>
+            <button className="filter-btn" onClick={showCartigories}>
               Cartigories
             </button>
-            <button className="filter-btn" onClick={fIlter}>
+            <button className="filter-btn" onClick={showLocations}>
               Location
             </button>
           </div>
-          {filter ? (
+          {catigories ? (
             <ul className="filter-group">
               <li className="active">All</li>
               <li>Baking</li>
@@ -31,7 +34,8 @@ const FilterBox = () => {
               <li>Cinematographer</li>
               <li>Tailoring</li>
             </ul>
-          ) : (
+          ) : ''}
+          {location ?
             <ul className="filter-group">
               <li>Lagos State</li>
               <li>Oyo State</li>
@@ -41,8 +45,8 @@ const FilterBox = () => {
               <li>Kwara State</li>
               <li>Osun State</li>
               <li>Sokoto State</li>
-            </ul>
-          )}
+            </ul>: null
+          }
         </div>
       </section>
     </>

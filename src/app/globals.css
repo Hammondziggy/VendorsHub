@@ -305,7 +305,12 @@ li {
   }
 }
 /* Loading screen ends */
-
+.title{
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  font-family: 'Satoshi';
+}
 /* Promo style */
 .promo-img{
   max-width: 100%;
