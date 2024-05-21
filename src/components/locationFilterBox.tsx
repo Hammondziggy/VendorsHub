@@ -1,20 +1,36 @@
 "use client";
+import { useState } from "react";
+import { vendorsListings } from "@/utils/vendorslistings";
+const allVendors = ['All',
+  ...new Set(vendorsListings.map((vendor) => vendor.location)),
+];
 const LocationFilterBox = () => {
-  
+  const [vendors, setVendors] = useState(allVendors);
+  const [filteredVendorsListings, setFilteredVendorsListings] =
+    useState(vendorsListings);
+
+  const filterVendors = (location: string) => {
+    if (location === 'All') {
+      setFilteredVendorsListings(vendorsListings);
+      return;
+    }
+    // filter vendors by location 
+    const newVendors = vendorsListings.filter(
+      (vendors) => vendors.location === location
+    );
+    setFilteredVendorsListings(newVendors);
+  };
   return (
     <>
-      <section className="location-filter rounded-[20px] top-[780px] h-[360px] top-[480px] left-[210px] md:left-[600px] md:top-[670px] lg:left-[810px] lg:top-[670px] xl:left-[1200px]">
-        <div className="relative">
-          <ul className="locations-group">
-            <li>Lagos State</li>
-            <li>Oyo State</li>
-            <li>Abuja</li>
-            <li>Ogun State</li>
-            <li>Ekiti State</li>
-            <li>Kwara State</li>
-            <li>Osun State</li>
-            <li>Sokoto State</li>
-          </ul>
+      <section className="location-filter rounded-[20px] top-[850px] h-[360px]  left-[110px] md:left-[600px] md:top-[670px] lg:left-[810px] lg:top-[670px] xl:left-[1200px]">
+        <div>
+          {vendors.map((location, index) => {
+            return (
+              <ul key={index} className="locations-group">
+                <li onClick={() => filterVendors(location)}>{location}</li>
+              </ul>
+            );
+          })}
         </div>
       </section>
     </>

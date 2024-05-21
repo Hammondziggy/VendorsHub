@@ -336,35 +336,36 @@ li {
   padding: 5px;
   position: absolute;
   background-color: #fff;
-  z-index: 999;
+  z-index: 1;
 }
 .btn-box {
-  width: 190px;
+  width: 195px;
   margin: 18px auto;
-  position: relative;
 }
 .filter-btn {
   padding: 0 10px;
   position: relative;
 }
-.btn-underline::after {
+.filter-btn {
+  background: transparent;
+  border-color: transparent;
+  margin: 0 0.5rem;
+  transition: all 0.3s linear;
+  cursor: pointer;
+  padding: 0.25rem 0;
+}
+.active-btn::after {
   content: '';
   position: absolute;
-  top: 25px;
-  left: 10px;
+  top: 30px;
+  left: 0px;
   background: #1e1e1e;
   border-radius: 6px;
-  width: 80px;
+  width: 75px;
   height: 0.178rem;
-  cursor: pointer;
 }
-.filter-group {
-  position: absolute;
-  left: 40px;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  z-index: 999;
+.filter-group li{
+  padding-bottom: 10px;
 }
 .active{
   color: #f5bd02;
@@ -382,14 +383,13 @@ li {
   background-color: #fff;
   z-index: 999;
 }
-.locations-group {
-  position: absolute;
-  top: 20px;
-  left: 30px;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  z-index: 999;
+.locations-group{
+  max-width: 900px;
+  margin: auto;
+  }
+.locations-group li{
+  padding-left: 10px;
+  padding-bottom: 10px;
 }
 .locations-group li:hover{
   color: #f5bd02;

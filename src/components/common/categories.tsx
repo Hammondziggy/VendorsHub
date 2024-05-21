@@ -10,7 +10,13 @@ import { vendorsListings } from "@/utils/vendorslistings";
 import Rating from "../../homepage/utils/rating";
 import CustomButton from "@/components/common/customButton";
 import LocationFilter from "@/components/locationFilterBox";
+// const allVendors = ['All',
+//   ...new Set(vendorsListings.map((vendor) => vendor.location)),
+// ];
+
 const Categories = () => {
+  
+
   const [visibleCategories, setVisibleCategories] = useState(6);
   const [startIndex, setStartIndex] = useState(0);
   const [filteredVendorsListings, setFilteredVendorsListings] =
@@ -26,12 +32,15 @@ const Categories = () => {
       // Non-empty search text, filter the listings
       const filteredListings = vendorsListings.filter(
         (listing) =>
-          listing.name.toLowerCase().includes(searchText.toLowerCase()) ||
-          listing.job.toLowerCase().includes(searchText.toLowerCase())
+          // listing.name.toLowerCase().includes(searchText.toLowerCase()) ||
+          listing.service.toLowerCase().includes(searchText.toLowerCase())
       );
       setFilteredVendorsListings(filteredListings);
     }
+   
   }, [searchText]);
+   
+   
 
   const updateVisibleCategories = () => {
     const screenWidth = window.innerWidth;
@@ -159,7 +168,10 @@ const showLocations = () =>{
           </div>
         </div>
       </div>
-      {filterLocation ? <LocationFilter /> : null}
+      {filterLocation && (
+        <LocationFilter 
+        />
+      )}
 
       <div className="w-[90%] mx-auto my-10">
         <div className="md:w-[40%]">

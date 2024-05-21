@@ -168,7 +168,7 @@ const Profile: React.FC<props> = ({vendor}) => {
               height="100%"
               textSize ="text-[1rem] md:text-md lg:text-md xl:text-md"
             >
-              Make Payments
+              Book Now
             </CustomButton>
           </Link>
         </div>
