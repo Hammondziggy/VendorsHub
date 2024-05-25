@@ -69,9 +69,17 @@ const Footer = () => {
               <Link href="/about-us">
                 <li>Contact</li>
               </Link>
-              <form className="relative content-start">
-                <img src="/icons/Send arrow.png" alt="" />
-                <input type="text" placeholder="Leave a Message" />
+              <form className="relative">
+                <img
+                  className="absolute left-[135px] top-[10px] w-[20px] "
+                  src="/icons/Send arrow.png"
+                  alt=""
+                />
+                <input
+                  type="text"
+                  placeholder="Leave a Message"
+                  className="px-2 py-2"
+                />
               </form>
             </ul>
           </div>
