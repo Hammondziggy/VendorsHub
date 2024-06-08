@@ -68,7 +68,7 @@ li {
 /* Placeholder styles */
 .placeholder-style::placeholder {
   color: #888;
-  font-size: 36px;
+  font-size: 20px;
   opacity: 0.75;
 }
 

@@ -1,10 +1,14 @@
-import Homepage from '@/homepage/page';
-import '@/app/globals.css';
+// app/page.tsx
+'use client';
 
-export default function Home() {
+import Homepage from '@/homepage/page';
+
+const App: React.FC = () => {
   return (
     <div className="flex-col center">
       <Homepage />
     </div>
-  )
-}
+  );
+};
+
+export default App;

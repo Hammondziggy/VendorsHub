@@ -14,11 +14,17 @@ const validationSchema = Yup.object().shape({
 type LoginProps = {
   logo: string;
   title: string;
+  login: (formData: FormData) => Promise<void>; // Add login function type
 };
 
-const Login: React.FC<LoginProps> = ({ logo, title }) => {
-  const handleSubmit = (values: any, { setSubmitting }: any) => {
-    console.log(values);
+const Login: React.FC<LoginProps> = ({ logo, title, login }) => {
+  const handleSubmit = async (values: any, { setSubmitting }: any) => {
+    try {
+      await login(values); // Call the login function with form values
+    } catch (error) {
+      console.error(error);
+      // Handle error
+    }
     setSubmitting(false);
   };
 

@@ -1,21 +1,23 @@
 import React from 'react';
-import OuterEllipse from '../../../../public/images/outerEllipse.png';
-import InnerEllipse from '../../../../public/images/innerEllipse.png';
 import Signup from './Signup';
 
 const UserSignup = () => {
     return (
         <div className="w-full h-screen relative">
-            <img src={OuterEllipse.src} alt="Outer Ellipse" style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover',
-            }} /> 
             <img 
-                src={InnerEllipse.src} 
+                src="/images/outerEllipse.png" 
+                alt="Outer Ellipse" 
+                style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                }} 
+            /> 
+            <img 
+                src="/images/innerEllipse.png" 
                 alt="Inner Ellipse" 
                 style={{
                     position: 'absolute',

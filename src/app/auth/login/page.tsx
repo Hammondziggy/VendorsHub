@@ -2,6 +2,7 @@ import React from 'react';
 import OuterEllipse from '../../../../public/images/outerEllipse.png';
 import InnerEllipse from '../../../../public/images/innerEllipse.png';
 import Login from './Login';
+import { login } from '../authActions';
 
 const UserLogin = () => {
     return (
@@ -26,7 +27,7 @@ const UserLogin = () => {
                     maxHeight: '85%',
                 }} 
             />
-            <Login logo="VendorsHub" title="Sign In" />        
+            <Login logo="VendorsHub" title="Sign In" login={login} />        
         </div>
     );
 }

@@ -1,18 +1,19 @@
-"use client";
+'use client';
 
-import React from "react";
-import { Formik, Form, ErrorMessage } from "formik";
-import * as Yup from "yup";
-import { Input } from "../input";
-import CustomButton from "@/components/common/customButton";
-import Link from "next/link";
+import React from 'react';
+import { Formik, Form, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
+import { Input } from '../input';
+import CustomButton from '@/components/common/customButton';
+import { useRouter } from 'next/navigation';
+import { useAuth } from '@/utils/auth';
 
 const validationSchema = Yup.object().shape({
-  username: Yup.string().required("Username is required"),
-  password: Yup.string().required("Password is required"),
+  email: Yup.string().email('Invalid email').required('Email is required'),
+  password: Yup.string().required('Password is required'),
   confirmPassword: Yup.string()
-    .oneOf([Yup.ref("password")], "Passwords must match")
-    .required("Confirm Password is required"),
+    .oneOf([Yup.ref('password')], 'Passwords must match')
+    .required('Confirm Password is required'),
 });
 
 type SignupProps = {
@@ -21,9 +22,27 @@ type SignupProps = {
 };
 
 const Signup: React.FC<SignupProps> = ({ logo, title }) => {
-  const handleSubmit = (values: any, { setSubmitting }: any) => {
-    console.log(values);
-    setSubmitting(false);
+  const router = useRouter();
+  const { signup, signInWithGoogle } = useAuth(); // Get signup and signInWithGoogle functions from useAuth
+
+  const handleSubmit = async (values: { email: string; password: string }, { setSubmitting }: any) => {
+    try {
+      await signup(values); // Call signup function
+      router.push('/'); // Redirect to homepage after successful signup
+    } catch (error) {
+      console.error('Signup Error:', error);
+      setSubmitting(false);
+    }
+  };
+
+  const handleGoogleSignIn = async (e: React.MouseEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    try {
+      await signInWithGoogle(); // Call signInWithGoogle function
+      router.push('/'); // Redirect to homepage after successful sign-in
+    } catch (error) {
+      console.error('Google Sign-In Error:', error);
+    }
   };
 
   return (
@@ -38,20 +57,20 @@ const Signup: React.FC<SignupProps> = ({ logo, title }) => {
           </h6>
         </div>
         <Formik
-          initialValues={{ username: "", password: "", confirmPassword: "" }}
+          initialValues={{ email: '', password: '', confirmPassword: '' }}
           validationSchema={validationSchema}
           onSubmit={handleSubmit}
         >
           {({ isSubmitting }) => (
             <Form className="flex flex-col gap-3">
               <Input
-                label="Username"
-                placeholder="Enter Username"
-                type="text"
-                name="username"
+                label="Email"
+                placeholder="Enter Email"
+                type="email"
+                name="email"
               />
               <ErrorMessage
-                name="username"
+                name="email"
                 component="div"
                 className="text-red -my-2 sm:text-sm md:text-[15px] lg:text-[15px]"
               />
@@ -92,8 +111,8 @@ const Signup: React.FC<SignupProps> = ({ logo, title }) => {
             </Form>
           )}
         </Formik>
-        <Link
-          href="/comingsoon"
+        <div
+          onClick={handleGoogleSignIn}
           className="flex items-center gap-2 justify-center cursor-pointer md:gap-2 lg:gap-4"
         >
           <div className="w-[1.4rem] h-[1.4rem] rounded-sm bg-white flex items-center justify-center shadow-lg p-1">
@@ -106,7 +125,7 @@ const Signup: React.FC<SignupProps> = ({ logo, title }) => {
           <p className="text-[12px] md:text-sm lg:text-[14px] xl:text-[16px]">
             Continue with Google
           </p>
-        </Link>
+        </div>
       </div>
     </div>
   );

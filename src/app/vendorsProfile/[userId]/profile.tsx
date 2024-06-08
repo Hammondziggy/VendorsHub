@@ -158,12 +158,12 @@ const Profile: React.FC<props> = ({vendor}) => {
           </div>
         </div>
         <div className='flex justify-center mt-10'>
-          <Link href="/comingsoon" className='cursor-pointer min-w-[30%] h-[3rem]'>
+          <Link href="/comingsoon" className='cursor-pointer min-w-[30%] h-[4rem] flex justify-center mt-16'>
             <CustomButton
               onClick={() => {}}
               borderRadius="6px"
               textColor="#000"
-              padding="0 30px"
+              padding="10px 30px"
               width="100%"
               height="100%"
               textSize ="text-[1rem] md:text-md lg:text-md xl:text-md"
@@ -172,7 +172,7 @@ const Profile: React.FC<props> = ({vendor}) => {
             </CustomButton>
           </Link>
         </div>
-        <div className="flex flex-col mt-12">
+        <div className="flex flex-col mt-16">
           <h4 className="text-white font-normal text-md md:text-lg lg:text-lg xl:text-xl">Leave Review</h4>
           <p className='text-[#888] font-normal text-sm md:text-md lg:text-[1.5rem] xl:text-lg'>Reviews are public and includes your account information</p>
           <form onSubmit={handleSubmit} className="flex flex-col justify-center w-full">
@@ -197,7 +197,7 @@ const Profile: React.FC<props> = ({vendor}) => {
               <Link 
                 href="/comingsoon"
                 type="submit"
-                className='w-[25%] h-[3rem] bg-primary mt-12 text-md font-medium border border-[#F5BD02] border-opacity-25 text-[#F5BD02] rounded-md mx-auto flex items-center justify-center'
+                className='w-[25%] h-[3.5rem] bg-primary mt-12 text-md font-medium border border-[#F5BD02] border-opacity-25 text-[#F5BD02] rounded-md mx-auto flex items-center justify-center'
               >
                 Post
               </Link>
