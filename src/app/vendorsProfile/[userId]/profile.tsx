@@ -158,7 +158,7 @@ const Profile: React.FC<props> = ({vendor}) => {
           </div>
         </div>
         <div className='flex justify-center mt-10'>
-          <Link href="/comingsoon" className='cursor-pointer min-w-[30%] h-[4rem] flex justify-center mt-16'>
+          <Link href="/payment" className='cursor-pointer min-w-[30%] h-[4rem] flex justify-center mt-16'>
             <CustomButton
               onClick={() => {}}
               borderRadius="6px"
