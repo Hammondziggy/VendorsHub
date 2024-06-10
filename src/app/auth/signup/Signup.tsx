@@ -3,7 +3,7 @@
 import React from 'react';
 import { Formik, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { Input } from '../input';
+import { Input } from '@/app/auth/input';
 import CustomButton from '@/components/common/customButton';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/utils/auth';
