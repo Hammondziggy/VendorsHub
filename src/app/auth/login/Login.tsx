@@ -14,7 +14,7 @@ const validationSchema = Yup.object().shape({
 type LoginProps = {
   logo: string;
   title: string;
-  login: (formData: FormData) => Promise<void>; // Add login function type
+  login: (formData: FormData) => Promise<void>;
 };
 
 const Login: React.FC<LoginProps> = ({ logo, title, login }) => {

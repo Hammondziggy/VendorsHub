@@ -23,12 +23,12 @@ type SignupProps = {
 
 const Signup: React.FC<SignupProps> = ({ logo, title }) => {
   const router = useRouter();
-  const { signup, signInWithGoogle } = useAuth(); // Get signup and signInWithGoogle functions from useAuth
+  const { signup, signInWithGoogle } = useAuth();
 
   const handleSubmit = async (values: { email: string; password: string }, { setSubmitting }: any) => {
     try {
-      await signup(values); // Call signup function
-      router.push('/'); // Redirect to homepage after successful signup
+      await signup(values);
+      router.push('/');
     } catch (error) {
       console.error('Signup Error:', error);
       setSubmitting(false);
@@ -38,8 +38,8 @@ const Signup: React.FC<SignupProps> = ({ logo, title }) => {
   const handleGoogleSignIn = async (e: React.MouseEvent<HTMLDivElement>) => {
     e.preventDefault();
     try {
-      await signInWithGoogle(); // Call signInWithGoogle function
-      router.push('/'); // Redirect to homepage after successful sign-in
+      await signInWithGoogle(); 
+      router.push('/');
     } catch (error) {
       console.error('Google Sign-In Error:', error);
     }

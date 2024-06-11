@@ -14,7 +14,7 @@ const Navbar = () => {
       </div>     
       <nav className='border-b-4 border-white pb-4 text-white w-[90%] mx-auto my-10'>
         <ul className='flex items-center justify-around'>
-            {['personal', 'payments', 'confirmations'].map((item) => (
+            {['personal', 'payments', 'confirmation'].map((item) => (
             <li key={item} className="relative" style={{ width: 'calc(100% / 3)' }}>
                 <Link href={`/payment/${item}`}>
                     <span 
