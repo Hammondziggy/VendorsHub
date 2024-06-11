@@ -78,7 +78,7 @@ const Payments = () => {
           />
           <p className='my-6 mx-auto'>Please make a transfer to the account details above</p>
           <div className='flex justify-center'>
-            <Link href="/payment/confirmation" className='cursor-pointer min-w-[30%] h-[3.5rem] flex justify-center'>
+            <Link href="/payment/confirmation" className="cursor-pointer min-w-[30%] h-[3.5rem] flex justify-center">
               <CustomButton
                 onClick={() => {}}
                 borderRadius="6px"
@@ -86,7 +86,7 @@ const Payments = () => {
                 padding="16px 70px"
                 width="100%"
                 height="100%"
-                textSize ="text-[1rem] md:text-md lg:text-md xl:text-md"
+                textSize="text-[1rem] md:text-md lg:text-md xl:text-md"
               >
                 I've Sent the Money
               </CustomButton>
