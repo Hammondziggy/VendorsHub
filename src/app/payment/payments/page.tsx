@@ -24,7 +24,6 @@ const Payments = () => {
 
   return (
     <div>
-      
       <div className='w-[90%] mx-auto my-4 flex'>
         <aside className='mt-20'>
           <SideNav />
