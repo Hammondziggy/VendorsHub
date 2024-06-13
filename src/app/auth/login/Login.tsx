@@ -1,31 +1,41 @@
-"use client";
+'use client';
 import React from "react";
 import { Formik, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { Input } from "@/app/auth/input";
 import CustomButton from "@/components/common/customButton";
 import Link from "next/link";
+import { useRouter } from 'next/navigation';
 
 const validationSchema = Yup.object().shape({
   username: Yup.string().required("Username is required"),
   password: Yup.string().required("Password is required"),
 });
 
-type LoginProps = {
-  logo: string;
-  title: string;
-  login: (formData: FormData) => Promise<void>;
-};
+const Login: React.FC<{ logo: string; title: string; }> = ({ logo, title }) => {
+  const router = useRouter();
 
-const Login: React.FC<LoginProps> = ({ logo, title, login }) => {
-  const handleSubmit = async (values: any, { setSubmitting }: any) => {
+  const handleSubmit = async (values: { username: string, password: string }, { setSubmitting }: any) => {
+    setSubmitting(true);
     try {
-      await login(values); // Call the login function with form values
+      const response = await fetch('/auth/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(values),
+      });
+
+      if (!response.ok) {
+        throw new Error('Login failed');
+      }
+
+      // Handle successful login, e.g., redirect to the dashboard
+      router.push('/');
     } catch (error) {
-      console.error(error);
-      // Handle error
+      console.error('Login Error:', error);
+      // Handle error, e.g., show error message
+    } finally {
+      setSubmitting(false);
     }
-    setSubmitting(false);
   };
 
   return (

@@ -6,7 +6,6 @@ import * as Yup from 'yup';
 import { Input } from '@/app/auth/input';
 import CustomButton from '@/components/common/customButton';
 import { useRouter } from 'next/navigation';
-import { useAuth } from '@/utils/auth';
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email').required('Email is required'),
@@ -16,32 +15,29 @@ const validationSchema = Yup.object().shape({
     .required('Confirm Password is required'),
 });
 
-type SignupProps = {
-  logo: string;
-  title: string;
-};
-
-const Signup: React.FC<SignupProps> = ({ logo, title }) => {
+const Signup: React.FC<{ logo: string; title: string; }> = ({ logo, title }) => {
   const router = useRouter();
-  const { signup, signInWithGoogle } = useAuth();
 
-  const handleSubmit = async (values: { email: string; password: string }, { setSubmitting }: any) => {
+  const handleSubmit = async (values: { email: string, password: string }, { setSubmitting }: any) => {
+    setSubmitting(true);
     try {
-      await signup(values);
+      const response = await fetch('/auth/api/signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(values),
+      });
+
+      if (!response.ok) {
+        throw new Error('Signup failed');
+      }
+
+      // Handle successful signup, e.g., redirect to the dashboard
       router.push('/');
     } catch (error) {
       console.error('Signup Error:', error);
+      // Handle error, e.g., show error message
+    } finally {
       setSubmitting(false);
-    }
-  };
-
-  const handleGoogleSignIn = async (e: React.MouseEvent<HTMLDivElement>) => {
-    e.preventDefault();
-    try {
-      await signInWithGoogle(); 
-      router.push('/');
-    } catch (error) {
-      console.error('Google Sign-In Error:', error);
     }
   };
 
@@ -104,28 +100,13 @@ const Signup: React.FC<SignupProps> = ({ logo, title }) => {
                 disabled={isSubmitting}
                 borderRadius="4px"
                 width="100%"
-                className="py-1 text-black text-sm md:text-md lg:text-md xl:text-md"
+                className="py-2 text-black"
               >
                 Sign Up
               </CustomButton>
             </Form>
           )}
         </Formik>
-        <div
-          onClick={handleGoogleSignIn}
-          className="flex items-center gap-2 justify-center cursor-pointer md:gap-2 lg:gap-4"
-        >
-          <div className="w-[1.4rem] h-[1.4rem] rounded-sm bg-white flex items-center justify-center shadow-lg p-1">
-            <img
-              src="/icons/google-favicon.png"
-              alt="Google Favicon"
-              className="inline-block max-w-full max-h-full"
-            />
-          </div>
-          <p className="text-[12px] md:text-sm lg:text-[14px] xl:text-[16px]">
-            Continue with Google
-          </p>
-        </div>
       </div>
     </div>
   );

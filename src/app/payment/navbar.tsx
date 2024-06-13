@@ -9,10 +9,10 @@ const Navbar = () => {
 
   return (
     <div className='w-full h-full'>
-      <div className='mt-6 mb-10 w-[90%] mx-auto'>
+      <div className='mt-6 mb-10 w-[85%] mx-auto'>
         <LogoImage />
       </div>     
-      <nav className='border-b-4 border-white pb-4 text-white w-[90%] mx-auto my-10'>
+      <nav className='border-b-4 border-white pb-4 text-white w-[85%] mx-auto my-10'>
         <ul className='flex items-center justify-around'>
             {['personal', 'payments', 'confirmation'].map((item) => (
             <li key={item} className="relative" style={{ width: 'calc(100% / 3)' }}>
