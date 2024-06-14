@@ -1,13 +1,13 @@
 'use client';
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { createClient } from '@/utils/supabase/client'; 
-import { Session } from '@supabase/supabase-js'; 
+import { supabase } from '@/utils/supabase/client';
+import { Session } from '@supabase/supabase-js';
 
 interface AuthContextType {
   user: Session | null;
   isLoading: boolean;
-  signup: (credentials: { email: string; password: string }) => Promise<void>; 
-  signInWithGoogle: () => Promise<void>; // Add this line
+  signup: (credentials: { email: string; password: string }) => Promise<void>;
+  signInWithGoogle: () => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -17,8 +17,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const supabase = createClient();
-
     const checkUser = async () => {
       const { data: { session } } = await supabase.auth.getSession();
       setUser(session);
@@ -29,7 +27,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   }, []);
 
   const signup = async ({ email, password }: { email: string; password: string }) => {
-    const supabase = createClient();
     const { error } = await supabase.auth.signUp({ email, password });
 
     if (error) {
@@ -37,12 +34,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
   };
 
-  // Add the signInWithGoogle function
   const signInWithGoogle = async () => {
-    const supabase = createClient();
-    const { error } = await supabase.auth.signInWithOAuth({
-      provider: 'google',
-    });
+    const { error } = await supabase.auth.signInWithOAuth({ provider: 'google' });
 
     if (error) {
       throw new Error('Google Sign-In failed');
@@ -58,7 +51,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
 export const useAuth = (): AuthContextType => {
   const context = useContext(AuthContext);
-  console.log('AuthContext:', context);
   if (context === undefined) {
     throw new Error('useAuth must be used within an AuthProvider');
   }
