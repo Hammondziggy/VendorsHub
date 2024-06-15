@@ -35,4 +35,4 @@ yarn-error.log*
 next-env.d.ts
 
 # Ignore the /backlog folder in the app folder
-/app/backlog
+/src/app/backlog

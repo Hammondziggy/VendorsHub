@@ -28,7 +28,7 @@ const withAuth = (WrappedComponent: React.ComponentType<WithAuthProps>) => {
 
     // Show loading state while checking authentication
     if (isLoading) {
-      return <div>Loading...</div>; // Consider using a loading spinner or animation
+      return <div>Loading...</div>; 
     }
 
     // Show the wrapped component regardless of the user's authentication status on the homepage
