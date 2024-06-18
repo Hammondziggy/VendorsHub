@@ -23,16 +23,15 @@ const Login: React.FC<{ logo: string; title: string; }> = ({ logo, title }) => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(values),
       });
-
+  
       if (!response.ok) {
         throw new Error('Login failed');
       }
-
-      // Handle successful login, e.g., redirect to the dashboard
-      router.push('/');
+  
+      router.push('/'); // Redirects to home page on success
     } catch (error) {
       console.error('Login Error:', error);
-      // Handle error, e.g., show error message
+      // Optionally display an error message or retry login
     } finally {
       setSubmitting(false);
     }

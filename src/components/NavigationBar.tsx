@@ -1,34 +1,20 @@
-"use client";
-//Navbar
-
+'use client';
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import LogoImage from "./common/logo";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { FaTimes } from "react-icons/fa";
+import SideNav from "@/components/sideNav";
 
 interface NavbarProps {
   className?: string;
-  scroll?: () => void;
-  // scrollToServices: () => void;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ className, scroll }) => {
+const Navbar = ({ className } : NavbarProps) => {
   const [openMenu, setOpenMenu] = useState(false);
 
-  const handleOpenMenu = () => {
+  const handleMenu = () => {
     setOpenMenu(!openMenu);
-  };
-
-  const handleCloseMenu = () => {
-    setOpenMenu(false);
-  };
-
-  const handleScrollToServices = (
-    event: React.MouseEvent<HTMLAnchorElement>
-  ) => {
-    event.preventDefault(); // Prevent default link behavior
-    scroll?.(); // Call scrollToServices function
   };
 
   return (
@@ -37,19 +23,17 @@ const Navbar: React.FC<NavbarProps> = ({ className, scroll }) => {
         <LogoImage />
         <div className="hidden md:flex items-center gap-6 text-[1.4rem] font-medium">
           <Link href="/vendorsListings">Categories</Link>
-          <Link href="/#gallery" onClick={scroll}>
-            Gallery
-          </Link>
+          <Link href="/galleryPage">Gallery</Link>
           <Link href="/auth/signup">Sign Up</Link>
-          <Link
-            href="/auth/login"
-          >
+          <Link href="/auth/login">
             <button className="bg-yellow text-black px-[5rem] py-3 text-[24px] font-medium rounded-[5px] cursor-pointer">
               Login
             </button>
           </Link>
+          {/* Single parent div for the ellipsis icon and dropdown */}
+          <SideNav />
         </div>
-        <div className="md:hidden cursor-pointer" onClick={handleOpenMenu}>
+        <div className="md:hidden cursor-pointer" onClick={handleMenu}>
           <Image src="/svg/menu.svg" alt="menu" width={27} height={27} />
         </div>
       </div>
@@ -66,25 +50,19 @@ const Navbar: React.FC<NavbarProps> = ({ className, scroll }) => {
         }}
       >
         <div className="w-[90%] flex-col flex cursor-pointer">
-          <div className="flex items-end justify-end" onClick={handleCloseMenu}>
+          <div className="flex items-end justify-end" onClick={handleMenu}>
             <FaTimes className="text-[1.5rem] hover:text-yellow cursor-pointer" />
           </div>
           <div className="md:hidden flex flex-col gap-[1rem] mt-4">
-            <Link href="/vendorsListings">
-              Categories
-            </Link>
-            {/* LInk to the services section is below */}
-            <Link href="/gallery">
-              Gallery
-            </Link>
+            <Link href="/vendorsListings">Categories</Link>
+            <Link href="/galleryPage">Gallery</Link>
             <Link href="/auth/signup">Sign Up</Link>
-            <Link
-              href="/auth/login"
-            >
+            <Link href="/auth/login">
               <button className="bg-yellow text-black text-normal font-bold rounded cursor-pointer mt-4 py-2 px-2">
                 Login
               </button>
             </Link>
+            <Link href=''>Sign Out</Link>
           </div>
         </div>
       </div>

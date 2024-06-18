@@ -1,37 +1,53 @@
 'use client';
+
+import Loading from '@/app/loading';
 import { useAuth } from '@/utils/auth';
 import { useRouter, usePathname } from 'next/navigation';
 import React, { useEffect } from 'react';
 
-// Define the props type for the WrappedComponent
 type WithAuthProps = {
   [key: string]: any;
 };
 
-// Higher-order component to wrap protected pages
 const withAuth = (WrappedComponent: React.ComponentType<WithAuthProps>) => {
   const ComponentWithAuth: React.FC<WithAuthProps> = (props) => {
     const { user, isLoading } = useAuth();
     const router = useRouter();
-    const pathname = usePathname(); // Get the current path
+    const pathname = usePathname();
 
     useEffect(() => {
-      if (isLoading) return;
+      if (isLoading) {
+        console.log('Loading...');
+        return;
+      }
 
-      // Allow the user to visit the homepage without redirecting
+      console.log('User:', user);
+      console.log('Pathname:', pathname);
+
       if (!user && pathname !== '/') {
-        // Save the current path to session storage to redirect after signup
+        console.log('Setting redirect path and adding event listeners');
         sessionStorage.setItem('redirectPath', pathname);
-        router.push('/auth/signup');
+
+        const handleInteraction = (): void => {
+          console.log('Interaction detected, redirecting to login');
+          router.push('/auth/login');
+        };
+
+        document.addEventListener('click', handleInteraction);
+        document.addEventListener('keydown', handleInteraction);
+
+        return () => {
+          console.log('Cleaning up event listeners');
+          document.removeEventListener('click', handleInteraction);
+          document.removeEventListener('keydown', handleInteraction);
+        };
       }
     }, [user, isLoading, pathname, router]);
 
-    // Show loading state while checking authentication
     if (isLoading) {
-      return <div>Loading...</div>; 
+      return <Loading />;
     }
 
-    // Show the wrapped component regardless of the user's authentication status on the homepage
     return <WrappedComponent {...props} />;
   };
 
