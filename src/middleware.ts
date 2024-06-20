@@ -57,23 +57,19 @@ export async function middleware(request: NextRequest) {
     data: { user },
   } = await supabase.auth.getUser();
 
-  if (!user) {
-    // Redirect to login if the user is not authenticated
-    const loginUrl = new URL("/auth/login", request.url);
-    loginUrl.searchParams.set("redirectedFrom", request.nextUrl.pathname);
+  const loginUrl = new URL("/auth/login", request.url);
+  loginUrl.searchParams.set("redirectedFrom", request.nextUrl.pathname);
+
+  // Prevent redirect loop by checking if the request is already on the login page
+  if (!user && request.nextUrl.pathname !== "/auth/login") {
     return NextResponse.redirect(loginUrl.toString());
   }
 
   return response;
 }
 
-// export const config = {
-//   matcher: [
-//     '/Herosec',
-//     '/listings',
-//     '/videoGrid',
-//     '/Testimonials',
-//     '/register',
-//     '/footer',
-//   ],
-// };
+export const config = {
+  matcher: [
+    '/payment',
+  ],
+};

@@ -22,4 +22,4 @@ const Homepage: React.FC = () => {
   );
 };
 
-export default withAuth(Homepage);
+export default Homepage;
