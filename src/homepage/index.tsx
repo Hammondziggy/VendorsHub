@@ -13,11 +13,11 @@ const Homepage: React.FC = () => {
   return (
     <>
       <Hero />
-      <Listings />
+      {/* <Listings />
       <VideoGrid />
       <Testimonial />
       <Register />
-      <Footer />
+      <Footer /> */}
     </>
   );
 };

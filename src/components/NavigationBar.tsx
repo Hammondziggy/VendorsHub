@@ -3,8 +3,10 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import LogoImage from "./common/logo";
-import { FaTimes } from "react-icons/fa";
+import { FaTimes, FaBars } from "react-icons/fa";
 import SideNav from "@/components/sideNav";
+import { NavList } from "./navList";
+import { useRouter } from 'next/navigation';
 
 interface NavbarProps {
   className?: string;
@@ -17,24 +19,28 @@ const Navbar = ({ className } : NavbarProps) => {
     setOpenMenu(!openMenu);
   };
 
+  const router = useRouter();
+
+  const handleLogin = () => {
+    router.push('/auth/login');
+  }
+
   return (
-    <nav className={`center mt-8 w-full text-white ${className}`}>
-      <div className="between w-[90%]">
+    <div className={`center mt-8 w-full text-white ${className}`}>
+      <div className="flex justify-between w-[90%] mx-auto">
         <LogoImage />
-        <div className="hidden md:flex items-center gap-6 text-[1.4rem] font-medium">
-          <Link href="/vendorsListings">Categories</Link>
-          <Link href="/galleryPage">Gallery</Link>
-          <Link href="/auth/signup">Sign Up</Link>
-          <Link href="/auth/login">
-            <button className="bg-yellow text-black px-[5rem] py-3 text-[24px] font-medium rounded-[5px] cursor-pointer">
+        <div className="hidden md:flex justify-end items-center gap-3 text-[1.4rem] font-medium w-full">
+          <NavList />
+          <div className="flex w-80 justify-between items-center ">
+            <button onClick={handleLogin} className="bg-yellow text-black flex-grow py-3 text-[24px] font-medium rounded-[5px] cursor-pointer mr-2">
               Login
             </button>
-          </Link>
-          {/* Single parent div for the ellipsis icon and dropdown */}
-          <SideNav />
+            {/* Single parent div for the ellipsis icon and dropdown */}
+            <SideNav />
+          </div>
         </div>
-        <div className="md:hidden cursor-pointer" onClick={handleMenu}>
-          <Image src="/svg/menu.svg" alt="menu" width={27} height={27} />
+        <div className="md:hidden cursor-pointer flex items-center justify-center" onClick={handleMenu}>
+          <FaBars className='w-6 h-6 text-white hover:text-yellow' />
         </div>
       </div>
 
@@ -66,7 +72,7 @@ const Navbar = ({ className } : NavbarProps) => {
           </div>
         </div>
       </div>
-    </nav>
+    </div>
   );
 };
 

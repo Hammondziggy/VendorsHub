@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { FaEllipsisV } from 'react-icons/fa';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { signOut } from '@/app/auth/signout'; // Adjust the import path according to your file structure
 
 const SideNav = () => {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -13,22 +14,11 @@ const SideNav = () => {
 
   const handleSignOut = async () => {
     try {
-      const response = await fetch('/api/signout', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-  
-      if (response.ok) {
-        router.push('/login'); // Redirect to login page on success
-      } else {
-        console.error('Sign-out failed:', response.statusText);
-        // Optionally display an error message or retry sign-out
-      }
+      await signOut();
+      router.push('/login'); // Redirect to login page on success
     } catch (error) {
       console.error('Error during sign-out:', error);
-      // Handle network errors or other exceptions
+      // Handle any errors that occur during sign-out
     }
   };
 

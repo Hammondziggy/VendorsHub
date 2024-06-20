@@ -28,14 +28,18 @@ const Login: React.FC<{ logo: string; title: string; }> = ({ logo, title }) => {
         throw new Error('Login failed');
       }
   
-      router.push('/'); // Redirects to home page on success
+      // Retrieve the 'redirectedFrom' parameter
+      const urlParams = new URLSearchParams(window.location.search);
+      const redirectedFrom = urlParams.get('redirectedFrom') || '/';
+  
+      router.push(redirectedFrom); // Redirects to the original page or home page on success
     } catch (error) {
       console.error('Login Error:', error);
       // Optionally display an error message or retry login
     } finally {
       setSubmitting(false);
     }
-  };
+  };  
 
   return (
     <div className="bg-white w-[65%] md:max-w-[32rem] lg:max-w-[40rem] h-fit mx-auto px-6 py-16 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-3xl">
