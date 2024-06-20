@@ -47,7 +47,7 @@ const SideNav = () => {
               Sign Out
             </div>
             <hr />
-            <Link href="/help" passHref>
+            <Link href="/comingsoon" passHref>
               <div className="block w-full text-black text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">
                 Help
               </div>
