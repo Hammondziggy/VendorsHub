@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { FaEllipsisV } from 'react-icons/fa';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { signOut } from '@/app/auth/signout'; // Adjust the import path according to your file structure
+import { signOut } from '@/app/auth/signout';
 
 const SideNav = () => {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -15,7 +15,7 @@ const SideNav = () => {
   const handleSignOut = async () => {
     try {
       await signOut();
-      router.push('/login'); // Redirect to login page on success
+      router.push('/login');
     } catch (error) {
       console.error('Error during sign-out:', error);
       // Handle any errors that occur during sign-out
@@ -31,7 +31,7 @@ const SideNav = () => {
         aria-haspopup="true"
         aria-expanded={showDropdown}
       >
-        <FaEllipsisV className="text-[2.3rem] text-white p-2 group-hover:text-yellow" />
+        <FaEllipsisV className="text-[2.3rem] text-white p-2" />
       </button>
       {showDropdown && (
         <div

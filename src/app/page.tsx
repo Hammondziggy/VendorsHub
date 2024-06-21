@@ -1,6 +1,3 @@
-// app/page.tsx
-'use client';
-
 import Homepage from '@/homepage/index';
 
 const App: React.FC = () => {

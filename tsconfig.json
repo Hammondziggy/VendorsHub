@@ -37,7 +37,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "src/app/vendorsProfile/[userId]",
+    "src/app/vendorsProfile/[userId]/*",
     "src/homepage/utils/dot.js",
     "src/homepage/utils/slider.js"
   ],

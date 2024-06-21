@@ -14,7 +14,7 @@ const PaymentsPage: React.FC = () => {
                 return <BankTransfer />;
             case 1:
             case 2:
-                return <ComingSoon />; // Render the single "Coming Soon" component for both Internet Banking and Card
+                return <ComingSoon />; 
             default:
                 return <BankTransfer />;
         }

@@ -1,24 +1,24 @@
+// src/hooks/useNProgress.ts
 'use client';
 
 import { useEffect } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
 import nprogress from 'nprogress';
+import 'nprogress/nprogress.css';
 
-// Initialize nprogress settings
 const useNProgress = () => {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
   useEffect(() => {
-    const handleRouteChange = () => {
-      nprogress.start();
-      nprogress.done();
-    };
+    const handleStart = () => nprogress.start();
+    const handleComplete = () => nprogress.done();
 
-    handleRouteChange();
+    handleStart();
+    handleComplete();
 
     return () => {
-      nprogress.done();
+      handleComplete();
     };
   }, [pathname, searchParams]);
 };

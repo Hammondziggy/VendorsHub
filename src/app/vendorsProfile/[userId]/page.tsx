@@ -1,9 +1,5 @@
-//'use client';
-//page.tsx
-
 import Profile from './profile';
 import Navbar from '@/components/NavigationBar';
-import Footer from '@/components/footer';
 import { vendorsListings } from '@/utils/vendorslistings';
 import ErrorVendorPage from "./error";
 
@@ -26,7 +22,6 @@ const VendorsProfile: React.FC<VendorsProfileProps> = ({ params }) => {
     <div>
         <Navbar />
         <Profile vendor ={vendor} />;
-        <Footer />
     </div>
   )
 }

@@ -8,6 +8,7 @@ body,
 html {
   padding: 0;
   margin: 0;
+  font-family: Satoshi;
   overflow-x: hidden;
 }
 li {
@@ -26,7 +27,6 @@ li {
 }
 
 .hero-text {
-  font-family: Satoshi;
   line-height: 99.5%;
 }
 

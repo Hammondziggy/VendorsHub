@@ -1,4 +1,4 @@
-import { supabase } from '@/utils/supabase/client'; // Adjust the import path as per your file structure
+import { supabase } from '@/utils/supabase/client';
 import { redirect } from 'next/navigation';
 import { revalidatePath } from 'next/cache';
 
@@ -8,13 +8,13 @@ export async function signOut() {
 
     if (sessionError) {
       console.error('Error retrieving session:', sessionError);
-      redirect('/error'); // Redirect to error page on session retrieval error
+      redirect('/error'); 
       return;
     }
 
     if (!session) {
       console.error('No active session found');
-      redirect('/'); // Redirect to home or login page if no active session
+      redirect('/'); 
       return;
     }
 
@@ -26,9 +26,9 @@ export async function signOut() {
 
     console.log('User successfully signed out');
     revalidatePath('/');
-    redirect('/login'); // Redirect to login page on success
+    redirect('/login'); 
   } catch (error) {
     console.error('Error during sign-out:', error);
-    redirect('/error'); // Handle any errors that occur during sign-out
+    redirect('/error');
   }
 }

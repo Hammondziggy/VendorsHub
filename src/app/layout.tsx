@@ -1,20 +1,22 @@
+// src/app/layout.tsx
 'use client';
 
-import React, { Suspense } from 'react';
+import React from 'react';
 import './globals.css';
 import '../styles/fonts.css';
 import { Analytics } from '@vercel/analytics/react';
 import { AuthProvider } from '@/utils/auth';
 import SuspenseBoundary from './SuspenseBoundary';
 import ErrorBoundary from './ErrorBoundary';
-// import useNProgress from '@/components/useNProgress';
+import Footer from '@/components/footer';
+import useNProgress from '@/components/useNProgress';
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
-  // useNProgress();
+  useNProgress();
 
   return (
     <html lang="en">
@@ -23,6 +25,7 @@ export default function RootLayout({
           <ErrorBoundary>
             <SuspenseBoundary>
               {children}
+              <Footer />
             </SuspenseBoundary>
           </ErrorBoundary>
         </AuthProvider>

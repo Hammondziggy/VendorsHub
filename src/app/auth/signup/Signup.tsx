@@ -23,8 +23,8 @@ const Signup: React.FC<{ logo: string; title: string; }> = ({ logo, title }) => 
   const handleSubmit = async (values: { email: string, password: string }, { setSubmitting }: any) => {
     setSubmitting(true);
     try {
-      await signup(values); // This line calls the signup function from useAuth
-      router.push('/'); // Redirects to home page on success
+      await signup(values);
+      router.push('/'); 
     } catch (error) {
       console.error('Signup Error:', error);
       alert('Signup failed. Please try again.');
