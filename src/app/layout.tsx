@@ -4,19 +4,19 @@
 import React from 'react';
 import './globals.css';
 import '../styles/fonts.css';
+import 'nprogress/nprogress.css';
 import { Analytics } from '@vercel/analytics/react';
 import { AuthProvider } from '@/utils/auth';
 import SuspenseBoundary from './SuspenseBoundary';
 import ErrorBoundary from './ErrorBoundary';
 import Footer from '@/components/footer';
-import useNProgress from '@/components/useNProgress';
+import ProgressProvider from './ProgressProvider';
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
-  useNProgress();
 
   return (
     <html lang="en">
@@ -24,7 +24,9 @@ export default function RootLayout({
         <AuthProvider>
           <ErrorBoundary>
             <SuspenseBoundary>
-              {children}
+              <ProgressProvider>
+                {children}
+              </ProgressProvider>
               <Footer />
             </SuspenseBoundary>
           </ErrorBoundary>

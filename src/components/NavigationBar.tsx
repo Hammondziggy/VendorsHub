@@ -1,7 +1,6 @@
 'use client';
 import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import LogoImage from "./common/logo";
 import { FaTimes, FaBars } from "react-icons/fa";
 import SideNav from "@/components/sideNav";
@@ -27,9 +26,9 @@ const Navbar = ({ className } : NavbarProps) => {
 
   return (
     <div className={`center mt-8 w-full text-white ${className}`}>
-      <div className="flex justify-between w-[90%] mx-auto">
+      <div className="flex justify-between w-[90%] gap-4 mx-auto">
         <LogoImage />
-        <div className="hidden md:flex justify-end items-center gap-3 text-[1.4rem] font-medium w-full">
+        <div className="hidden md:flex justify-end items-center gap-3 text-[1.4rem] font-medium w-[70%]">
           <NavList />
           <div className="flex w-80 justify-between items-center ml-2">
             <button onClick={handleLogin} className="bg-yellow text-black flex-grow py-3 text-[24px] font-medium rounded-[5px] cursor-pointer mr-4">
@@ -40,7 +39,7 @@ const Navbar = ({ className } : NavbarProps) => {
           </div>
         </div>
         <div className="md:hidden cursor-pointer flex items-center justify-center" onClick={handleMenu}>
-          <FaBars className='w-4 h-8 text-white hover:text-yellow' />
+          <FaBars className='w-6 h-8 text-white hover:text-yellow' />
         </div>
       </div>
 
