@@ -14,7 +14,7 @@ export const NavList = () => {
 
     return(
         <nav className="hidden items-center w-80 md:flex justify-between">
-            <ul className="flex justify-between items-center w-full gap-3 flex-shrink-0 text-white font-normal text-base md:text-normal lg:text-[1.4rem] xl:text-[1.4rem]">
+            <ul className="flex justify-between items-center w-full gap-3 flex-shrink-0 text-white font-medium text-base md:text-[1.2rem] lg:text-[1.4rem] xl:text-[1.4rem]">
                 {NavLinks.map(link => {
                    return (
                         <li className="cursor-pointer" key={link.id}>
