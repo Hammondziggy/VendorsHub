@@ -1,5 +1,6 @@
 import Navbar from "@/components/NavigationBar";
 import ComingSoon from "@/components/comingSoon";
+import Footer from "@/components/footer";
 
 
 export default function Comingsoon () {
@@ -7,6 +8,7 @@ export default function Comingsoon () {
         <>
             <Navbar />
             <ComingSoon />
+            <Footer />
         </>
     )
 }

@@ -6,6 +6,7 @@ import Listings from "./listings";
 import VideoGrid from "@/components/videoGrid";
 import Testimonial from './Testimonials';
 import Register from "@/components/common/register";
+import Footer from '@/components/footer';
 
 const Homepage: React.FC = () => {
   return (
@@ -15,6 +16,7 @@ const Homepage: React.FC = () => {
       <VideoGrid />
       <Testimonial />
       <Register />
+      <Footer />
     </>
   );
 };
