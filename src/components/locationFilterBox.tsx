@@ -1,20 +1,16 @@
 "use client";
 import { useState } from "react";
 import { vendorsListings } from "@/utils/vendorslistings";
-const allVendors = ['All',
+const allVendors = [
   ...new Set(vendorsListings.map((vendor) => vendor.location)),
 ];
 const LocationFilterBox = () => {
-  const [vendors, setVendors] = useState(allVendors);
   const [filteredVendorsListings, setFilteredVendorsListings] =
     useState(vendorsListings);
 
-  const filterVendors = (location: string) => {
-    if (location === 'All') {
-      setFilteredVendorsListings(vendorsListings);
-      return;
-    }
-    // filter vendors by location 
+  const [vendors, setVendors] = useState(allVendors);
+
+  const filterVendors = (location: any) => {
     const newVendors = vendorsListings.filter(
       (vendors) => vendors.location === location
     );

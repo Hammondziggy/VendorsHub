@@ -15,8 +15,7 @@ import LocationFilter from "@/components/locationFilterBox";
 // ];
 
 const Categories = () => {
-  
-
+  // const [vendors, setVendors] = useState(allVendors);
   const [visibleCategories, setVisibleCategories] = useState(6);
   const [startIndex, setStartIndex] = useState(0);
   const [filteredVendorsListings, setFilteredVendorsListings] =
@@ -40,7 +39,16 @@ const Categories = () => {
    
   }, [searchText]);
    
+  
    
+
+  //  const filterVendorsByLocation = (location: any) => {
+     
+  //    const newVendors = vendorsListings.filter(
+  //      (vendor) => vendor.location === location
+  //    );
+  //    setFilteredVendorsListings(newVendors);
+  //  };
 
   const updateVisibleCategories = () => {
     const screenWidth = window.innerWidth;
@@ -169,7 +177,9 @@ const showLocations = () =>{
         </div>
       </div>
       {filterLocation && (
-        <LocationFilter 
+        <LocationFilter
+          // filter={vendors}
+          // filterVendors={filterVendorsByLocation}
         />
       )}
 
