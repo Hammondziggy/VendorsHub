@@ -7,10 +7,10 @@ import Navbar from "@/components/NavigationBar";
 import HeroSearch from "@/components/heroSearch";
 const images = [
   "/images/Enovalab.png",
-  "./images/heroSlideIn1.png",
-  "./images/heroSlideIn2.png",
-  "./images/heroSlideIn3.png",
-  "./images/heroSlideIn4.png",
+  "/images/heroSlideIn1.png",
+  "/images/heroSlideIn2.png",
+  "/images/heroSlideIn3.png",
+  "/images/heroSlideIn4.png",
 ];
 
 export const HeroSlider = () => {

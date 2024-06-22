@@ -1,10 +1,11 @@
-import Homepage from '@/homepage/page';
-import '@/app/globals.css';
+import Homepage from '@/homepage/index';
 
-export default function Home() {
+const App: React.FC = () => {
   return (
     <div className="flex-col center">
       <Homepage />
     </div>
-  )
-}
+  );
+};
+
+export default App;

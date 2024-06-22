@@ -1,26 +1,45 @@
-"use client";
+'use client';
 import React from "react";
 import { Formik, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import { Input } from "../input";
+import { Input } from "@/app/auth/input";
 import CustomButton from "@/components/common/customButton";
 import Link from "next/link";
+import { useRouter } from 'next/navigation';
 
 const validationSchema = Yup.object().shape({
   username: Yup.string().required("Username is required"),
   password: Yup.string().required("Password is required"),
 });
 
-type LoginProps = {
-  logo: string;
-  title: string;
-};
+const Login: React.FC<{ logo: string; title: string; }> = ({ logo, title }) => {
+  const router = useRouter();
 
-const Login: React.FC<LoginProps> = ({ logo, title }) => {
-  const handleSubmit = (values: any, { setSubmitting }: any) => {
-    console.log(values);
-    setSubmitting(false);
-  };
+  const handleSubmit = async (values: { username: string, password: string }, { setSubmitting }: any) => {
+    setSubmitting(true);
+    try {
+      const response = await fetch('/auth/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(values),
+      });
+  
+      if (!response.ok) {
+        throw new Error('Login failed');
+      }
+  
+      // Retrieve the 'redirectedFrom' parameter
+      const urlParams = new URLSearchParams(window.location.search);
+      const redirectedFrom = urlParams.get('redirectedFrom') || '/';
+  
+      router.push(redirectedFrom); // Redirects to the original page or home page on success
+    } catch (error) {
+      console.error('Login Error:', error);
+      // Optionally display an error message or retry login
+    } finally {
+      setSubmitting(false);
+    }
+  };  
 
   return (
     <div className="bg-white w-[65%] md:max-w-[32rem] lg:max-w-[40rem] h-fit mx-auto px-6 py-16 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-3xl">

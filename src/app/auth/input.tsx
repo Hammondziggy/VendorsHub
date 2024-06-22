@@ -28,15 +28,17 @@ export const Input = ({ label, placeholder, type, name }: InputProps) => {
                     className="border border-yellow focus:outline-yellow min-w-full px-4 py-3 text-[10px] md:text-[12px] lg:text-[15px] rounded-sm"
                     placeholder={placeholder}
                     type={type === 'password' && !showPassword ? 'password' : 'text'}
-                    // required
+                    required
                 />
                 {type === 'password' && (
-                    <span
+                    <button
+                        type="button"
                         className="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer"
                         onClick={handleTogglePassword}
+                        aria-label={showPassword ? "Hide password" : "Show password"}
                     >
                         {showPassword ? <IoEyeOutline /> : <IoEyeOffOutline />}
-                    </span>
+                    </button>
                 )}
             </div>
         </div>

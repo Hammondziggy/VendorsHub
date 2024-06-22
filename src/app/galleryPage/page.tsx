@@ -1,8 +1,7 @@
-"use client";
-
+import React from 'react';
 import Gallery from "@/components/gallery";
-import Footer from '@/components/footer';
 import GalleryHero from './hero';
+import Footer from '@/components/footer';
 
 const GalleryVideosPage: React.FC = () => {
 
