@@ -1,8 +1,38 @@
 import Image from "next/image";
 import { Testimonials } from "./utils/testimonial";
+import OuterEllipse from "../../public/images/outerEllipse.png";
+import InnerEllipse from "../../public/images/innerEllipse.png";
 const Testimonial = () => {
   return (
-    <div className="w-full bg-[#CDCDCD] center pb-10 mt-20">
+    <div className="w-full center pb-10 mt-20">
+      <img
+        src={OuterEllipse.src}
+        alt="Outer Ellipse"
+        style={{
+          position: "absolute",
+          top: "3100px",
+          left: "1160px",
+          maxWidth: "100%",
+          maxHeight: "50%",
+          zIndex: -999,
+          // width: "500px",
+          // height: "80%",
+          // objectFit: 'cover',
+        }}
+      />
+      <img
+        src={InnerEllipse.src}
+        alt="Inner Ellipse"
+        style={{
+          position: "absolute",
+          top: "3290px",
+          left: "1420px",
+          zIndex: 999,
+          transform: "translate(-50%, -50%)",
+          maxWidth: "20%",
+          maxHeight: "50%",
+        }}
+      />
       <div className="w-[90%] flex-col center">
         <h2 className="md:text-lg text-[1.3rem] w-[100%] text-start my-12">
           Testimonials
@@ -11,7 +41,7 @@ const Testimonial = () => {
           {Testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="bg-white shadow-xl shadow-[#F5BD0266] lg:w-[32%] md:w-[49%] h-[470px] w-full rounded-sm p-8 flex flex-col justify-center gap-8"
+              className="bg-white shadow-xl shadow-[#F5BD0266] lg:w-[32%] md:w-[49%] h-[455px] w-full rounded-sm p-8 flex flex-col justify-center gap-8"
             >
               <div>
                 <img src="/images/Stars.svg" alt="ratings" />

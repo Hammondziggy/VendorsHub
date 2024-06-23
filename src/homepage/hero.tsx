@@ -50,9 +50,9 @@ interface HeroProps {
 const Hero: React.FC<HeroProps> = ({ scrollToServices }) => {
 
   return (
-    <div className="flex-col w-full flex items-center outline-red relative h-screen">
+    <div className="flex-col w-full flex items-center outline-red relative h-screen z-[1]">
       <HeroSlider />
-      <Navbar className="absolute" scroll={scrollToServices}/>
+      <Navbar className="absolute"/>
       <div className="w-[70%] h-30 flex items-center justify-center absolute px-8 py-12 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" 
           style={{
               backgroundColor: 'rgba(0, 0, 0, 0.5)', // Use rgba for both color and opacity
