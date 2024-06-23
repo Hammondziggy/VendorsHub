@@ -1,17 +1,17 @@
-'use client';
+"use client";
 import { useState } from "react";
 import Link from "next/link";
 import LogoImage from "./common/logo";
 import { FaTimes, FaBars } from "react-icons/fa";
 import SideNav from "@/components/sideNav";
 import { NavList } from "./navList";
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/navigation";
 
 interface NavbarProps {
   className?: string;
 }
 
-const Navbar = ({ className } : NavbarProps) => {
+const Navbar = ({ className }: NavbarProps) => {
   const [openMenu, setOpenMenu] = useState(false);
 
   const handleMenu = () => {
@@ -21,8 +21,8 @@ const Navbar = ({ className } : NavbarProps) => {
   const router = useRouter();
 
   const handleLogin = () => {
-    router.push('/auth/login');
-  }
+    router.push("/auth/login");
+  };
 
   return (
     <div className={`center mt-8 w-full text-white ${className}`}>
@@ -31,15 +31,21 @@ const Navbar = ({ className } : NavbarProps) => {
         <div className="hidden md:flex justify-end items-center gap-3 text-[1.4rem] font-medium w-[70%]">
           <NavList />
           <div className="flex w-80 justify-between items-center ml-2">
-            <button onClick={handleLogin} className="bg-yellow text-black flex-grow py-3 text-[24px] font-medium rounded-[5px] cursor-pointer mr-4">
+            <button
+              onClick={handleLogin}
+              className="bg-yellow text-black flex-grow py-3 text-[24px] font-medium rounded-[5px] cursor-pointer mr-4"
+            >
               Login
             </button>
             {/* Single parent div for the ellipsis icon and dropdown */}
             <SideNav />
           </div>
         </div>
-        <div className="md:hidden cursor-pointer flex items-center justify-center" onClick={handleMenu}>
-          <FaBars className='w-6 h-8 text-white hover:text-yellow' />
+        <div
+          className="md:hidden cursor-pointer flex items-center justify-center"
+          onClick={handleMenu}
+        >
+          <FaBars className="w-6 h-8 text-white hover:text-yellow" />
         </div>
       </div>
 
@@ -51,7 +57,7 @@ const Navbar = ({ className } : NavbarProps) => {
         }
         style={{
           backgroundColor: "rgba(255, 255, 255, 0.2)",
-          backdropFilter: "blur(10px)"
+          backdropFilter: "blur(10px)",
         }}
       >
         <div className="w-[90%] flex-col flex cursor-pointer">
@@ -67,7 +73,7 @@ const Navbar = ({ className } : NavbarProps) => {
                 Login
               </button>
             </Link>
-            <Link href=''>Sign Out</Link>
+            <Link href="">Sign Out</Link>
           </div>
         </div>
       </div>

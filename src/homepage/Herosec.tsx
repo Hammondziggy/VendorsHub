@@ -4,8 +4,7 @@ import Link from "next/link";
 import CustomButton from "@/components/common/customButton";
 import { useState, useEffect } from "react";
 import Navbar from "@/components/NavigationBar";
-import FilterBox from "@/components/filterBox";
-
+import HeroSearch from "@/components/heroSearch";
 const images = [
   "/images/Enovalab.png",
   "/images/heroSlideIn1.png",
@@ -48,10 +47,7 @@ export const HeroSlider = () => {
 };
 
 const Hero = () => {
-  const [filterBox, setfilterBox] = useState(false);
-  const showFilterBox = () => {
-    setfilterBox(!filterBox);
-  };
+  
   return (
     <div className="flex-col w-full flex items-center outline-red relative h-screen">
       <HeroSlider />
@@ -61,22 +57,7 @@ const Hero = () => {
           <p className="text-white text-md md:text-[26px] lg:text-lg xl:text-xl text-center mb-4 md:w-[800px] font-medium">
             Find the perfect Vendors for your Events Today
           </p>
-          <form>
-            <div className="relative">
-              <img
-                src="/icons/filter-icon.png"
-                alt="filtter icon"
-                onClick={showFilterBox}
-                className="absolute top-[1rem] left-[15rem] z-10 w-9 md:w-10 md:left-[37rem] lg:left-[38rem] cursor-pointer"
-              />
-
-              <input
-                type="text"
-                className=" outline-none pr-[7rem] pl-3 py-4 rounded-md md:pr-[30rem] "
-                placeholder="Search"
-              />
-            </div>
-          </form>
+          <HeroSearch />
           <Link
             href="@/vendorsListings"
             className="cursor-pointer items-center text-normal"
@@ -92,7 +73,6 @@ const Hero = () => {
               Hire Now
             </CustomButton>
           </Link>
-          {filterBox && <FilterBox />}
         </div>
       </div>
     </div>
