@@ -1,16 +1,12 @@
-'use client';
 import Link from 'next/link';
-// import { usePathname } from 'next/navigation';
 
 const NavLinks = [
     { id: 1, name: 'Categories', path: '/vendorsListings' },
 	{ id: 2, name: 'Gallery', path: '/galleryPage' },
-	{ id: 3, name: 'Sign Up', path: '/signup' },
+	{ id: 3, name: 'Sign Up', path: '/auth/signup' },
 ]
 
 export const NavList = () => {
-    // const pathname = usePathname();
-	// const isActive = (path: string) => path === pathname;
 
     return(
         <nav className="hidden items-center w-80 md:flex justify-between">

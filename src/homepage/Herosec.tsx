@@ -78,7 +78,7 @@ const Hero = () => {
             </div>
           </form>
           <Link
-            href="@/vendorsListings"
+            href="/vendorsListings"
             className="cursor-pointer items-center text-normal"
           >
             <CustomButton

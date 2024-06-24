@@ -34,7 +34,6 @@ const Navbar = ({ className } : NavbarProps) => {
             <button onClick={handleLogin} className="bg-yellow text-black flex-grow py-3 text-[24px] font-medium rounded-[5px] cursor-pointer mr-4">
               Login
             </button>
-            {/* Single parent div for the ellipsis icon and dropdown */}
             <SideNav />
           </div>
         </div>
