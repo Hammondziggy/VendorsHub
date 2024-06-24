@@ -7,16 +7,17 @@ import VideoGrid from "@/components/videoGrid";
 import Testimonial from './Testimonials';
 import Register from "@/components/common/register";
 import Footer from '@/components/footer';
-
+import Promo from './promo'
 const Homepage: React.FC = () => {
   return (
     <>
       <Hero />
-      <Listings />
-      <VideoGrid />
-      <Testimonial />
-      <Register />
-      <Footer />
+        <Listings />
+        <VideoGrid />
+        <Promo />
+        <Testimonial />
+        <Register />
+        <Footer />
     </>
   );
 };

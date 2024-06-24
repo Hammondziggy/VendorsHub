@@ -1,48 +1,38 @@
 "use client";
 import { useState } from "react";
+import FilterData from "@/utils/filterBoxData";
 const FilterBox = () => {
-  const [filter, setFilter] = useState(false);
-  // const [location, setLocations] = useState(false);
-  const fIlter = () => {
-    setFilter(!filter);
-  };
+  const [filters, setFilter] = useState(FilterData);
+  const [value, setValue] = useState(0);
+  const { filter, filterItems } = filters[value];
   return (
     <>
-      <section className="filter-container top-[220px] h-[450px] md:left-[390px] lg:left-[470px] xl:top-[280px] xl:left-[690px]">
+      <section className="filter-container top-[220px] rounded-[10px] md:left-[390px] lg:left-[470px] xl:top-[240px] xl:left-[690px]">
         <div className="relative">
           <div className="btn-box ">
-            <div className="btn-underline"></div>
-            <button className="filter-btn" onClick={fIlter}>
-              Cartigories
-            </button>
-            <button className="filter-btn" onClick={fIlter}>
-              Location
-            </button>
+            {/* <div className="btn-underline"></div> */}
+            {filters.map((item, index) => {
+              return (
+                <button
+                  key={item.id}
+                  className={`filter-btn ${index === value && "active-btn"}`}
+                  onClick={() => setValue(index)}
+                >
+                  {item.filter}
+                </button>
+              );
+            })}
           </div>
-          {filter ? (
-            <ul className="filter-group">
-              <li className="active">All</li>
-              <li>Baking</li>
-              <li>Decoration</li>
-              <li>Hair stylist</li>
-              <li>Barbing</li>
-              <li>Makeup Artist</li>
-              <li>Photographer</li>
-              <li>Cinematographer</li>
-              <li>Tailoring</li>
-            </ul>
-          ) : (
-            <ul className="filter-group">
-              <li>Lagos State</li>
-              <li>Oyo State</li>
-              <li>Abuja</li>
-              <li>Ogun State</li>
-              <li>Ekiti State</li>
-              <li>Kwara State</li>
-              <li>Osun State</li>
-              <li>Sokoto State</li>
-            </ul>
-          )}
+
+          {filterItems.map((items, index) => {
+            return (
+              <div>
+                <ul key={index} className="filter-group">
+                  <li>{items}</li>
+                </ul>
+              </div>
+            );
+          })}
         </div>
       </section>
     </>
