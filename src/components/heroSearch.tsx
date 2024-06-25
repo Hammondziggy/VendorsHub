@@ -1,9 +1,10 @@
 "use client";
 
-import React from 'react'
+import React from 'react';
 import FilterBox from "@/components/filterBox";
 import { useState } from 'react';
-const heroSearchInput = () => {
+
+const HeroSearchInput = () => {
   const [filterBox, setfilterBox] = useState(false);
   const showFilterBox = () => {
     setfilterBox(!filterBox);
@@ -33,4 +34,4 @@ const heroSearchInput = () => {
   );
 };
 
-export default heroSearchInput
+export default HeroSearchInput;
