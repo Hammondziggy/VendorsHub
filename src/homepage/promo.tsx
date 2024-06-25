@@ -20,7 +20,7 @@ const Promo = () => {
                   Maximize your budget with our exclusive vendor deals. From
                   catering to entertainment and everything in between, our
                   handpicked vendors are offering unbeatable discounts to make
-                  your event unforgettable without overspending. Don't settle
+                  your event unforgettable without overspending. Don&rsquo;t settle
                   for less – seize the best deals today and elevate your event
                   experience without breaking the bank!
                 </p>
