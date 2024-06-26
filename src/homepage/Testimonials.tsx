@@ -4,7 +4,7 @@ import OuterEllipse from "../../public/images/outerEllipse.png";
 import InnerEllipse from "../../public/images/innerEllipse.png";
 const Testimonial = () => {
   return (
-    <div className="w-full center pb-10 mt-20">
+    <div className="w-full center pb-10 mt-9">
       <img
         src={OuterEllipse.src}
         alt="Outer Ellipse"
@@ -34,14 +34,14 @@ const Testimonial = () => {
         }}
       />
       <div className="w-[90%] flex-col center">
-        <h2 className="md:text-lg text-[1.3rem] w-[100%] text-start my-12">
+        <h2 className="md:text-lg text-[1.3rem] w-[100%] text-start my-12 text-white">
           Testimonials
         </h2>
         <div className="between flex-wrap gap-3 w-full">
           {Testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="bg-white shadow-xl shadow-[#F5BD0266] lg:w-[32%] md:w-[49%] h-[455px] w-full rounded-sm p-8 flex flex-col justify-center gap-8"
+              className="bg-white shadow-xl shadow-[#F5BD0266] lg:w-[30%] md:w-[45%] h-[455px] w-full rounded-sm p-5 flex flex-col justify-center gap-8"
             >
               <div>
                 <img src="/images/Stars.svg" alt="ratings" />

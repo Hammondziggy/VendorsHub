@@ -1,7 +1,7 @@
 "use client";
 
 // Categories.tsx
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { categories } from "@/utils/categories";
@@ -10,9 +10,8 @@ import { vendorsListings } from "@/utils/vendorslistings";
 import Rating from "../../homepage/utils/rating";
 import CustomButton from "@/components/common/customButton";
 import LocationFilter from "@/components/locationFilterBox";
-// const allVendors = ['All',
-//   ...new Set(vendorsListings.map((vendor) => vendor.location)),
-// ];
+import handler from "@/app/auth/api/signout";
+
 
 const Categories = () => {
   // const [vendors, setVendors] = useState(allVendors);
@@ -39,16 +38,20 @@ const Categories = () => {
    
   }, [searchText]);
    
-  
+  let locationRef = useRef<T>(null);
+   useEffect(() => {
+    let handler = (event: any) =>{
+      if (!locationRef.current.contains(event.target)) {
+        setFilterLocation(false);
+      }
+    }
+     document.addEventListener("mousedown", handler) 
    
-
-  //  const filterVendorsByLocation = (location: any) => {
-     
-  //    const newVendors = vendorsListings.filter(
-  //      (vendor) => vendor.location === location
-  //    );
-  //    setFilteredVendorsListings(newVendors);
-  //  };
+     return () => {
+       document.removeEventListener("mousedown", handler);  
+     }
+   },)
+   
 
   const updateVisibleCategories = () => {
     const screenWidth = window.innerWidth;
@@ -107,7 +110,7 @@ const showLocations = () =>{
 }
   return (
     <div className="w-full mb-6 mt-[85px]">
-      <div className="w-full">
+      <div ref={locationRef} className="w-full">
         <h4 className="title sm:text-lg font-normal mb-6 text-xl text-white">
           Explore popular Categories
         </h4>
@@ -178,8 +181,8 @@ const showLocations = () =>{
       </div>
       {filterLocation && (
         <LocationFilter
-          // filter={vendors}
-          // filterVendors={filterVendorsByLocation}
+        // filter={vendors}
+        // filterVendors={filterVendorsByLocation}
         />
       )}
 

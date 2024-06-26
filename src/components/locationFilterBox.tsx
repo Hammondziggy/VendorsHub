@@ -18,7 +18,7 @@ const LocationFilterBox = () => {
   };
   return (
     <>
-      <section className="location-filter rounded-[20px] top-[850px] h-[360px]  left-[110px] md:left-[600px] md:top-[670px] lg:left-[810px] lg:top-[670px] xl:left-[1200px]">
+      <section className="location-filter rounded-[20px] top-[850px] h-[360px]  left-[110px] md:left-[600px] md:top-[670px] lg:left-[810px] lg:top-[670px] xl:left-[1140px]">
         <div>
           {vendors.map((location, index) => {
             return (
